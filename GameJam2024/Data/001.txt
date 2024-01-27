@@ -1,0 +1,7 @@
+TREE;
+001;
+TrainingManual;
+CodeOfEthics;
+CodeOfConduct;
+WorshipMaterial;
+BACK TestFileTreeParsing
