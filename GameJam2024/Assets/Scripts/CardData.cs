@@ -5,33 +5,47 @@ using UnityEngine;
 
 public class CardData : MonoBehaviour
 {
-    public int number;
+    public Sprite CardFace;
+    public Sprite CardBack;
+    private Selectable selectable;
+    private SpriteRenderer spriteRenderer;
+    private Solitare solitare;
 
-    public bool Spades;
-    public bool Daimonds;
-    public bool Clubs;
-    public bool Hearts;
+    private void Start()
+    {
+        List<string> deck = Solitare.GenerateDeck();
+        solitare = FindObjectOfType<Solitare>();
 
-    public bool CardReveled;
+        int i = 0;
+        foreach(string card in deck)
+        {
+            if (this.name == card)
+            {
+                CardFace = solitare.cardFaces[i];
+                break;
+            }
+            i++;
+        }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        selectable = GetComponent<Selectable>();
+
+    }
+
+
+    private void Update()
+    {
+        if(selectable.faceUp == true)
+        {
+            spriteRenderer.sprite = CardFace;
+        }
+        else
+        {
+            spriteRenderer.sprite = CardBack;
+        }
+    }
 
     public void newInfo(int card)
     {
-        if(card <= 13)
-        {
-            Spades = true;
-        }
-        else if(card <= 26)
-        {
-            Daimonds = true;
-        }
-        else if(card <= 39)
-        {
-            Clubs = true;
-        }
-        else if(card <= 52)
-        {
-            Hearts = true;
-        }
-        number = card % 13;
+        
     }
 }
