@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class CmdController : MonoBehaviour
 {
     private string prevDir;
+
+    public bool taskActive = false;
 
     private List<string> commands = new List<string>();
 
@@ -15,9 +19,24 @@ public class CmdController : MonoBehaviour
     [SerializeField] private GameObject treeView;
     [SerializeField] private GameObject txtView;
     [SerializeField] private GameObject init;
+    [SerializeField] private GameObject reactor;
 
     [SerializeField] private TextMeshProUGUI txt;
     [SerializeField] private TextMeshProUGUI[] treeFields;
+
+    private enum ActiveTask
+    {
+        none,
+        reactor,
+        power,
+        doors,
+        security,
+        connection,
+        killcode,
+        monster
+    }
+
+    private ActiveTask curTask = ActiveTask.none;
 
     private void Awake()
     {
@@ -30,6 +49,19 @@ public class CmdController : MonoBehaviour
     public void Command()
     {
         string command = cmdLn.text;
+
+        if(command == "")
+        {
+            return;
+        }
+
+        if(taskActive == true)
+        {
+            TaskCommand(command);
+            cmdLn.text = "";
+            cmdLn.ActivateInputField();
+            return;
+        }
 
         string[] splitCmd = command.Split(" ");
 
@@ -59,10 +91,24 @@ public class CmdController : MonoBehaviour
         }
 
         cmdLn.text = "";
+
+        cmdLn.DeactivateInputField();
+        cmdLn.ActivateInputField();
     }
 
     private void OpenParser(string fileName)
     {
+        switch(fileName.ToLower())
+        {
+            case "reactorcontrol":
+                treeView.SetActive(false);
+                txtView.SetActive(false);
+                reactor.SetActive(true);
+                taskActive = true;
+                curTask = ActiveTask.reactor;
+                return;
+        }
+
         string readData = FileReader.ReadFile(fileName);
 
         string[] splitData = readData.Split(";");
@@ -102,14 +148,34 @@ public class CmdController : MonoBehaviour
             treeView.SetActive(false);
         }
     }
-
-    private void ReturnHome()
+    
+    private void TaskCommand(string command)
     {
+        switch(curTask)
+        {
+            case ActiveTask.none:
+                break;
+            case ActiveTask.reactor:
+                gameObject.GetComponent<ReactorTask>().TaskCmd(command);
+                break;
+            case ActiveTask.power:
 
-    }
+                break;
+            case ActiveTask.doors:
 
-    private void Back()
-    {
+                break;
+            case ActiveTask.security:
 
+                break;
+            case ActiveTask.connection:
+
+                break;
+            case ActiveTask.killcode:
+
+                break;
+            case ActiveTask.monster:
+
+                break;
+        }
     }
 }
