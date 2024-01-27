@@ -17,9 +17,21 @@ public class GameManager : MonoBehaviour
     public static int GamePhase;
     [SerializeField] private float gameTime;
 
+    //camera vars
+    [SerializeField] private GameObject cameraManager;
+    private CinemachineBehavior cb;     //to forve the camera movement type cb.ForceMoniter1 (or 2) to refrece function
+
+    public static Action StartVIM;
+
+
     private void Start()
     {
         SetGameState();
+
+        if(cameraManager != null)
+        {
+            cb = cameraManager.GetComponent<CinemachineBehavior>();
+        }
     }
 
     private void SetGameState()
@@ -30,7 +42,7 @@ public class GameManager : MonoBehaviour
                 GamePhase = 1;
                 StartCoroutine(GameTimer());
                 print("PHASE 1");
-                //start VIM
+                StartVIM?.Invoke();
                 break;
             case 4:
                 GamePhase = 2;

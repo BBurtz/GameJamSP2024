@@ -11,7 +11,17 @@ public class Monitor2Behavior : MonoBehaviour
     private GameObject selectedVIM;
     private Vector2 VIMLocation;
 
-    private void Start()
+
+    private void OnEnable()
+    {
+        GameManager.StartVIM += StartVIM;
+    }
+    private void OnDisable()
+    {
+        GameManager.StartVIM -= StartVIM;
+    }
+
+    private void StartVIM()
     {
         StartCoroutine(VIMTimer());
     }
