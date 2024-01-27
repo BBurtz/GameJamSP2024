@@ -24,7 +24,7 @@ public class CmdController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txt;
     [SerializeField] private TextMeshProUGUI[] treeFields;
 
-    private enum ActiveTask
+    public enum ActiveTask
     {
         none,
         reactor,
@@ -36,7 +36,7 @@ public class CmdController : MonoBehaviour
         monster
     }
 
-    private ActiveTask curTask = ActiveTask.none;
+    public ActiveTask curTask = ActiveTask.none;
 
     private void Awake()
     {

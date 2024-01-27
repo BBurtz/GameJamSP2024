@@ -23,8 +23,12 @@ public class ReactorTask : MonoBehaviour
     [SerializeField] private TextMeshProUGUI c2;
     [SerializeField] private TextMeshProUGUI c3;
 
+    private CmdController cCont;
+
     private void Start()
     {
+        cCont = gameObject.GetComponent<CmdController>();
+
         for(int i = 4; i > 0; i--)
         {
             correctCode += Random.Range(0, 10).ToString();
@@ -65,10 +69,27 @@ public class ReactorTask : MonoBehaviour
             adminCode.SetActive(true);
             reactor.SetActive(false);
         }
-        else if(cmd == correctAdminCode && adminCode.activeInHierarchy == true)
+        else if(adminCode.activeInHierarchy == true)
         {
-            treeView.SetActive(true);
-            adminCode.SetActive(false);
+            if(cmd == correctAdminCode)
+            {
+                treeView.SetActive(true);
+                adminCode.SetActive(false);
+            }
+            else if(cmd.ToLower() == "home")
+            {
+                cCont.curTask = CmdController.ActiveTask.none;
+                cCont.taskActive = false;
+                cCont.Command();
+                adminCode.SetActive(false);
+            }
+            else if(cmd.ToLower().StartsWith("open"))
+            {
+                cCont.curTask = CmdController.ActiveTask.none;
+                cCont.taskActive = false;
+                cCont.Command();
+                adminCode.SetActive(false);
+            }
         }
         else
         {
