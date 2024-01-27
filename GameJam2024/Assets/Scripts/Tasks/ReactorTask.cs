@@ -25,9 +25,12 @@ public class ReactorTask : MonoBehaviour
 
     private CmdController cCont;
 
+    private GameObject gm;
+
     private void Start()
     {
         cCont = gameObject.GetComponent<CmdController>();
+        gm = GameObject.Find("GameManager");
 
         for(int i = 4; i > 0; i--)
         {
@@ -73,6 +76,7 @@ public class ReactorTask : MonoBehaviour
         {
             if(cmd == correctAdminCode)
             {
+                gm.GetComponent<GameManager>().Task1 = true;
                 treeView.SetActive(true);
                 adminCode.SetActive(false);
                 cCont.curTask = CmdController.ActiveTask.none;

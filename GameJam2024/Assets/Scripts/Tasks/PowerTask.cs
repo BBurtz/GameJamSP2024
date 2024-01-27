@@ -18,36 +18,43 @@ public class PowerTask : MonoBehaviour
     [SerializeField] private GameObject c3;
 
     [SerializeField] private GameObject treeView;
+    [SerializeField] private GameObject powerControl;
 
     private CmdController cCont;
+
+    private GameObject gm;
 
     private void Start()
     {
         cCont = gameObject.GetComponent<CmdController>();
+        gm = GameObject.Find("GameManager");
 
-        rotations[0] = a1.transform.rotation.z;
-        rotations[1] = b1.transform.rotation.z;
-        rotations[2] = c1.transform.rotation.z;
-        rotations[3] = a2.transform.rotation.z;
-        rotations[4] = b2.transform.rotation.z;
-        rotations[5] = c2.transform.rotation.z;
-        rotations[6] = a3.transform.rotation.z;
-        rotations[7] = b3.transform.rotation.z;
-        rotations[8] = c3.transform.rotation.z;
-
-        foreach(float f in rotations)
-        {
-            if(f >= 360)
-            {
-                rotations[rotations.IndexOf(f)] = f % 360f;
-            }
-
-            Debug.Log(rotations[rotations.IndexOf(f)]);
-        }
+        rotations[0] = 90;
+        rotations[1] = 90;
+        rotations[2] = 180;
+        rotations[3] = 0;
+        rotations[4] = 0;
+        rotations[5] = 0;
+        rotations[6] = 270;
+        rotations[7] = 90;
+        rotations[8] = 0;
     }
 
     public void RotateTile(string id)
     {
+        if(id.ToLower() == "home")
+        {
+            cCont.curTask = CmdController.ActiveTask.none;
+            cCont.taskActive = false;
+            cCont.Command();
+        }
+        else if(id.ToLower().StartsWith("open"))
+        {
+            cCont.curTask = CmdController.ActiveTask.none;
+            cCont.taskActive = false;
+            cCont.Command();
+        }
+
         if(id.Length > 2)
         {
             gameObject.GetComponent<CmdController>().ResetCmdLn();
@@ -57,40 +64,40 @@ public class PowerTask : MonoBehaviour
         switch(id)
         {
             case "a1":
-                a1.transform.rotation = new Quaternion(0, 0, transform.rotation.z + 90f, 0);
-                rotations[0] = a1.transform.rotation.z;
+                a1.transform.Rotate(0, 0, 90);
+                rotations[0] += 90;
                 break;
             case "b1":
-                b1.transform.rotation = new Quaternion(0, 0, transform.rotation.z + 90f, 0);
-                rotations[1] = b1.transform.rotation.z;
+                b1.transform.Rotate(0, 0, 90);
+                rotations[1] += 90;
                 break;
             case "c1":
-                c1.transform.rotation = new Quaternion(0, 0, transform.rotation.z + 90f, 0);
-                rotations[2] = c1.transform.rotation.z;
+                c1.transform.Rotate(0, 0, 90);
+                rotations[2] += 90;
                 break;
             case "a2":
-                a2.transform.rotation = new Quaternion(0, 0, transform.rotation.z + 90f, 0);
-                rotations[3] = a2.transform.rotation.z;
+                a2.transform.Rotate(0, 0, 90);
+                rotations[3] += 90;
                 break;
             case "b2":
-                b2.transform.rotation = new Quaternion(0, 0, transform.rotation.z + 90f, 0);
-                rotations[4] = b2.transform.rotation.z;
+                b2.transform.Rotate(0, 0, 90);
+                rotations[4] += 90;
                 break;
             case "c2":
-                c2.transform.rotation = new Quaternion(0, 0, transform.rotation.z + 90f, 0);
-                rotations[5] = c2.transform.rotation.z;
+                c2.transform.Rotate(0, 0, 90);
+                rotations[5] += 90;
                 break;
             case "a3":
-                a3.transform.rotation = new Quaternion(0, 0, transform.rotation.z + 90f, 0);
-                rotations[6] = a3.transform.rotation.z;
+                a3.transform.Rotate(0, 0, 90);
+                rotations[6] += 90;
                 break;
             case "b3":
-                b3.transform.rotation = new Quaternion(0, 0, transform.rotation.z + 90f, 0);
-                rotations[7] = b3.transform.rotation.z;
+                b3.transform.Rotate(0, 0, 90);
+                rotations[7] += 90;
                 break;
             case "c3":
-                c3.transform.rotation = new Quaternion(0, 0, transform.rotation.z + 90f, 0);
-                rotations[8] = c3.transform.rotation.z;
+                c3.transform.Rotate(0, 0, 90);
+                rotations[8] += 90;
                 break;
         }
 
@@ -99,37 +106,38 @@ public class PowerTask : MonoBehaviour
 
     private void CheckSolution()
     {
-        int correctIndex = 0;
+        int index = 0;
 
-        foreach(float f in rotations)
+        foreach(float f in properRot)
         {
-            if(rotations.IndexOf(f) == 1 || rotations.IndexOf(f) == 4 || rotations.IndexOf(f) == 7)
+            float temp = rotations[index];
+
+            if(temp >= 360f)
             {
-                float temp = f;
+                temp = temp % 360f;
+            }
 
-                temp -= 180;
-
-                if(temp == 0)
+            if(index == 1 || index == 4 || index == 7)
+            {
+                if(temp == 180)
                 {
-                    correctIndex++;
+                    temp -= 180;
                 }
             }
-            else
+
+            if(temp != f)
             {
-                if(f == properRot[rotations.IndexOf(f)])
-                {
-                    correctIndex++;
-                }
+                return;
             }
+
+            index++;
         }
 
-        if(correctIndex == 9)
-        {
-            //Set task bool to complete.
-            cCont.curTask = CmdController.ActiveTask.none;
-            cCont.taskActive = false;
-            treeView.SetActive(true);
-            gameObject.SetActive(false);
-        }
+        //Set task bool to complete.
+        gm.GetComponent<GameManager>().Task2 = true;
+        cCont.curTask = CmdController.ActiveTask.none;
+        cCont.taskActive = false;
+        treeView.SetActive(true);
+        powerControl.SetActive(false);
     }
 }

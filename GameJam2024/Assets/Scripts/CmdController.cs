@@ -21,6 +21,7 @@ public class CmdController : MonoBehaviour
     [SerializeField] private GameObject init;
     [SerializeField] private GameObject reactor;
     [SerializeField] private GameObject power;
+    [SerializeField] private GameObject doors;
 
     [SerializeField] private TextMeshProUGUI txt;
     [SerializeField] private TextMeshProUGUI[] treeFields;
@@ -120,6 +121,13 @@ public class CmdController : MonoBehaviour
                 power.SetActive(true);
                 taskActive = true;
                 curTask = ActiveTask.power;
+                return;
+            case "securitydoors":
+                treeView.SetActive(false);
+                txtView.SetActive(false);
+                doors.SetActive(true);
+                taskActive = true;
+                curTask = ActiveTask.doors;
                 break;
         }
 
@@ -176,7 +184,7 @@ public class CmdController : MonoBehaviour
                 gameObject.GetComponent<PowerTask>().RotateTile(command);
                 break;
             case ActiveTask.doors:
-
+                gameObject.GetComponent<DoorsTask>().TaskCmd(command);
                 break;
             case ActiveTask.security:
 
