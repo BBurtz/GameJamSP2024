@@ -75,6 +75,8 @@ public class ReactorTask : MonoBehaviour
             {
                 treeView.SetActive(true);
                 adminCode.SetActive(false);
+                cCont.curTask = CmdController.ActiveTask.none;
+                cCont.taskActive = false;
             }
             else if(cmd.ToLower() == "home")
             {
