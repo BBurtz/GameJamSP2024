@@ -31,6 +31,19 @@ public class CinemachineBehavior : MonoBehaviour
         isFacingRight = !isFacingRight;
     }
 
+    public void ForceMoniter1()
+    {
+        rightCam.Priority = 0;
+        leftCam.Priority = 1;
+    }
+
+    public void ForceMoniter2()
+    {
+        print("print 2");
+        rightCam.Priority = 1;
+        leftCam.Priority = 0;
+    }
+
     private void OnEnable()
     {
         action.Enable();
