@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security;
 using UnityEngine;
 
 public class Endings : MonoBehaviour
@@ -14,6 +15,8 @@ public class Endings : MonoBehaviour
     [SerializeField] private GameObject ErrorText;
     [SerializeField] private List<GameObject> OtherCanvasItems;
 
+    [SerializeField] private List<GameObject> AllItems;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +29,7 @@ public class Endings : MonoBehaviour
         
     }
 
-    private void lost()
+    public void lost()
     {
         BackGround.GetComponent<SpriteRenderer>().sprite = dBackground;
         Invoke("Error", 1);
@@ -44,6 +47,12 @@ public class Endings : MonoBehaviour
 
     void Everythingoff()
     {
-
+        ErrorText.SetActive(false);
+        foreach (GameObject item in AllItems)
+        {
+            item.SetActive(false);
+        }
+        //screen goes off so no light is there to see anything
+        //play knocking audio
     }
 }
