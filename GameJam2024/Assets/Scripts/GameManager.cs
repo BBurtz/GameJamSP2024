@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Preshow()
     {
+        yield return new WaitForSeconds(1);
         cb = cameraManager.GetComponent<CinemachineBehavior>();
         cb.ForceMoniter2();
         yield return new WaitForSeconds(2);
