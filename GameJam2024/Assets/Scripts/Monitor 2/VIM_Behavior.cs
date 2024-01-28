@@ -10,13 +10,6 @@ public class VIM_Behavior : MonoBehaviour
 
     public void CloseWindow()
     {
-        if(GameManager.GamePhase == 3)
-        {
-            //FLASH ANIMATION
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

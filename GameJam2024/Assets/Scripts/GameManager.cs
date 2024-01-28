@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -29,14 +30,24 @@ public class GameManager : MonoBehaviour
     public Sprite spr3;
 
 
+
+
     private void Start()
     {
-        SetGameState();
+        StartCoroutine(GameStart());
 
         if(cameraManager != null)
         {
             cb = cameraManager.GetComponent<CinemachineBehavior>();
         }
+    }
+
+    IEnumerator GameStart()
+    {
+        cb.ForceMoniter2();
+        //start talk show host
+        yield return new WaitForSeconds(30);
+        SetGameState();
     }
 
     private void SetGameState()
@@ -48,6 +59,7 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(GameTimer());
                 print("PHASE 1");
                 StartVIM?.Invoke();
+                //start first alarm
                 break;
             case 1.5f:
                 SelectMalware(); //malware
