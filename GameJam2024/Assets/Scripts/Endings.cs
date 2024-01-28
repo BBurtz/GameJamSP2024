@@ -53,6 +53,8 @@ public class Endings : MonoBehaviour
         //just message
         //fade to black
 
+        Debug.Log("WIN");
+
         //Red alarm flashing animation
         AudioManager.Instance.Play("Alarm");
         Invoke("Explode", 3);
