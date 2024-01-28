@@ -4,6 +4,6 @@ Reactor;
 Generator;
 Erik1.txt;
 Erik2.txt;
-reactoractivation.txt;
+malfunction.txt;
 IT;
 BACK Start
