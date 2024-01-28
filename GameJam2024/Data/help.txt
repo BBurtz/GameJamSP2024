@@ -1,0 +1,21 @@
+TXT;
+NuMed Technologies
+Research and Development Group
+------------------------------------------
+DOCTOR M. SHELLEY, PHD
+R&D - SECURITY PROCEDURE
+------------------------------------------
+IN CASE OF A CONTAINMENT BREACH, FOLLOW PROTOCOL IMMEDIATELY
+
+1. Reenable the malfunctioning reactor
+	- Figure out which of the reactors is failing, and restore function.
+2. Restore main power to the facility
+	- After restoring the reactor, take the facility off of backup power. Our 	  power grid can be remotely controlled from your computer.
+3. Reset the security system
+	- When the main power fails, all electronically controlled doors are 	  	  	  unlocked. Relock them IMMEDIATELY.
+4. Establish killcode connection to the escaped subject
+	- Find the serial number of the escaped subject and enter the admin code 	  to confirm.
+5. Launch killcode
+
+(Author's note: DO NOT UNDER ANY CIRCUMSTANCES LAUNCH THE KILLCODE WITHOUT MY EXPLICIT CONSENT);
+BACK Start

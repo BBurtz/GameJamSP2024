@@ -3762,6 +3762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3028b8f6338a94f81348232fbfa2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Volume: 0
   sounds:
   - name: BeepPA
     clip: {fileID: 8300000, guid: 59811e46070933640bb6da7bf5e9fe4b, type: 3}
