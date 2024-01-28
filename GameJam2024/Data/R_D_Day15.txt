@@ -5,17 +5,17 @@ Research and Development Group
 ------------------------------------------
 DOCTOR M. SHELLEY, PHD
 R&D - PRELIMINARY TRIALS
-TEST SUBJECT E
+TEST SUBJECT D-287
 RESEARCH LOG
 DAY 15
 ------------------------------------------
 We've finally had a breakthrough. Due to previous technological improvements, our now expired subjects were able to endure several rounds of testing with multiple devices, and because of this, we have significantly improved the biological compatibility of the (REDACTED) augmentation.
 
-My latest subject, Subject E, has been fitted with the latest version of the (REDACTED), version 28-8. The subject appears obedient and follows instruction, albeit with some... "encouragement." 
+My latest subject, Subject D, has been fitted with the latest version of the (REDACTED), version 28-8. The subject appears obedient and follows instruction, albeit with some... "encouragement." 
 
 The practical capabilities of the augmentation are astronomical. The subject appears to have significantly heightened reflexes and increased mental fortitude. However, some "unusual" behavior has been noted.
 
-(REDACTED) v. 28-8 appears to interfere with the electronics within our facility, most notably our radio systems. My assistant, Erik, has even reported hearing my voice over the radio while I am away. These auditory hallucinations are likely not related to Subject E. I will ask my staff to monitor Mr. Teshenn's condition.
+(REDACTED) v. 28-8 appears to interfere with the electronics within our facility, most notably our radio systems. My assistant, Erik, has even reported hearing my voice over the radio while I am away. These auditory hallucinations are likely not related to Subject D. I will ask my staff to monitor Mr. Teshenn's condition.
 	
-	-Dr. S.
-
+	-Dr. S.;
+BACK Cameras

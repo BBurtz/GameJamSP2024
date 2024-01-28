@@ -1,0 +1,19 @@
+TXT;
+NuMed Technologies
+Research and Development Group
+04/08/1989
+------------------------------------------
+DOCTOR M. SHELLEY, PHD
+R&D - PRELIMINARY TRIALS
+TEST SUBJECT E-288
+RESEARCH LOG
+DAY 33
+------------------------------------------
+I have been working tirelessly with E-288 since it's augmentation and progress has been... inconsistent.
+
+The subject's physical capabilities are superhuman, no doubt, but I am having trouble measuring to what extent. The subject is markedly uncooperative with my endeavors, making it frustratingly dangerous to continue reasearch. As well, the (REDACTED) enhances the subject to such an extent that our methods of pacification prove ineffective, and its impressive ability to disrupt electronics has made it difficult to work with. One of my staff learned that the hard way.
+
+(REDACTED) has expressed concern about (REDACTED), saying that it is unfit as a test subject, but I have come too far to give up on this project. I WILL see this through, whether (REDACTED) needs me to or not.
+
+If all else fails, I still have the killcode command. To prevent anyone but me from using it, it requires both an administrative code and a keyword, only known to myself. I should update the admin code though, the subject's creation date isn't the most secure.;
+BACK E-288

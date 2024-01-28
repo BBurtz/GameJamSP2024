@@ -5,7 +5,7 @@ Research and Development Group
 ------------------------------------------
 DOCTOR M. SHELLEY, PHD
 R&D - PRELIMINARY TRIALS
-TEST SUBJECT B
+TEST SUBJECT B-285
 RESEARCH LOG
 DAY 4
 ------------------------------------------
@@ -15,5 +15,5 @@ A modified prototype of the (REDACTED) was tested on Subject B, and despite my i
 
 Unfortunately, despite our efforts, Subject B does not appear to be responsive to our verbal commands. More... intense methods will follow
 
- - Dr. S.
-
+ - Dr. S.;
+BACK Power

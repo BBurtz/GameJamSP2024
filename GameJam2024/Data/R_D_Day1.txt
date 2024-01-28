@@ -5,7 +5,7 @@ Research and Development Group
 ------------------------------------------
 DOCTOR M. SHELLEY, PHD
 R&D - PRELIMINARY TRIALS
-TEST SUBJECT A
+TEST SUBJECT A-284
 RESEARCH LOG
 DAY 1
 ------------------------------------------
@@ -16,4 +16,5 @@ Subject has shown signs of both physical and mental distress in response to the 
 However, the (REDACTED) implementation procedure was a technical success. Our method of installation appears promising. Further refinement of the (REDACTED) is required.
 
 - Author's note: If each of our subjects react this poorly, we'll soon run out of them. Improving the biological compatibility of the (REDACTED) is my top priority
-	Dr. S.
+	Dr. S.;
+BACK Power
