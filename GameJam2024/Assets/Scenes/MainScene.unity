@@ -2441,8 +2441,8 @@ MonoBehaviour:
   gameTime: 0
   cameraManager: {fileID: 0}
   MalwareList: 000000000100000002000000
-  spr1: {fileID: 21300000, guid: bd965df6955a8944dad302b3cf7c87e2, type: 3}
-  spr2: {fileID: 21300000, guid: 75ef82ad989fdce4bbefdd3120947cf9, type: 3}
+  spr1: {fileID: 0}
+  spr2: {fileID: 0}
   spr3: {fileID: 0}
 --- !u!4 &376011577
 Transform:
@@ -2581,7 +2581,7 @@ MonoBehaviour:
   - {fileID: 1414191599}
   treeView: {fileID: 1184389123}
   doors: {fileID: 710578052}
-  treeBkgrnd: {fileID: 1383090521}
+  treeBkgrnd: {fileID: 0}
 --- !u!114 &428400883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2625,7 +2625,7 @@ MonoBehaviour:
   c3: {fileID: 120328785}
   treeView: {fileID: 1184389123}
   powerControl: {fileID: 474442611}
-  treeBkgrnd: {fileID: 1383090521}
+  treeBkgrnd: {fileID: 0}
 --- !u!114 &428400884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2645,7 +2645,7 @@ MonoBehaviour:
   treeView: {fileID: 1184389123}
   reactor: {fileID: 115957619}
   adminCode: {fileID: 74037310}
-  treeBkgrnd: {fileID: 1383090521}
+  treeBkgrnd: {fileID: 0}
   goodChamber: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   badChamber: {fileID: 0}
   c1: {fileID: 665787738}
@@ -2672,11 +2672,11 @@ MonoBehaviour:
   power: {fileID: 474442611}
   doors: {fileID: 710578052}
   cameras: {fileID: 301536424}
-  treeBkgrnd: {fileID: 1383090521}
-  pngTxt: {fileID: 1626879556}
-  animation: {fileID: 532459374}
-  txtBkgrnd: {fileID: 2059841145}
-  invalid: {fileID: 1458873437}
+  treeBkgrnd: {fileID: 0}
+  pngTxt: {fileID: 0}
+  animation: {fileID: 0}
+  txtBkgrnd: {fileID: 0}
+  invalid: {fileID: 0}
   txt: {fileID: 1620425989}
   treeFields:
   - {fileID: 710284914}
@@ -2686,7 +2686,7 @@ MonoBehaviour:
   - {fileID: 682506335}
   - {fileID: 745682322}
   - {fileID: 1019600124}
-  error: {fileID: 8300000, guid: b21f08bf023e6b24cb0670e323fe1d19, type: 3}
+  error: {fileID: 0}
   lockedFiles: []
   curTask: 0
 --- !u!114 &428400886
@@ -2805,7 +2805,7 @@ MonoBehaviour:
   Tree: {fileID: 1184389123}
   Admin: {fileID: 74037310}
   CamTask: {fileID: 301536424}
-  treeBkgrnd: {fileID: 1383090521}
+  treeBkgrnd: {fileID: 0}
   correctCode: 1818
 --- !u!1 &474442611
 GameObject:
@@ -3746,6 +3746,18 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: WrongTask
     clip: {fileID: 8300000, guid: e726d71820a64484a8ae80e3ae2972a2, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Losing
+    clip: {fileID: 8300000, guid: 2de55e850f4248e4db17048fcb5cf82e, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Alarm
+    clip: {fileID: 8300000, guid: c7a9621cd522a634490d4ce9c8de6ba0, type: 3}
     mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
     volume: 1
     pitch: 0
@@ -7547,6 +7559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ad9f23cdae9194bba74b0ab8565af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topStacks: []
+  highScorePanel: {fileID: 0}
 --- !u!114 &1502583349
 MonoBehaviour:
   m_ObjectHideFlags: 0
