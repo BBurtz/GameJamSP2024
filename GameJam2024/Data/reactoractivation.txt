@@ -1,0 +1,14 @@
+TXT;
+NuMed Technologies
+Research and Development Group
+03/10/1989
+------------------------------------------
+RE: To all employees - about reactor malfunction
+------------------------------------------
+Hello NuMed employees,
+
+Recently, we suffered a malfunction that resulted in a shutdown of the reactor. Maintenance and IT worked together to repair the system and ensure that future errors will be less likely and easier to repair. In the event of an emergency, employees with proper clearance should be able to use their ID number in place of the admin password to reactivate the reactors.
+
+Thank you and have a great Nu day,
+NuMed HR;
+BACK IT
