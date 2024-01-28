@@ -27,9 +27,12 @@ public class CmdController : MonoBehaviour
     [SerializeField] private GameObject pngTxt;
     [SerializeField] private GameObject animation;
     [SerializeField] private GameObject txtBkgrnd;
+    [SerializeField] private GameObject invalid;
 
     [SerializeField] private TextMeshProUGUI txt;
     [SerializeField] private TextMeshProUGUI[] treeFields;
+
+    [SerializeField] private AudioClip error;
 
     private GameObject gm;
 
@@ -109,18 +112,33 @@ public class CmdController : MonoBehaviour
                 OpenParser(prevDir);
             }
         }
-        else
+        else if(splitCmd[0].ToLower() == commands[3])
         {
             if(gm.GetComponent<GameManager>().Task4 == true && splitCmd[1].ToLower() == "meaningless")
             {
                 //Put killcode ending here.
             }
         }
+        else
+        {
+            StartCoroutine(Error());
+        }
 
         cmdLn.text = "";
 
         cmdLn.DeactivateInputField();
         cmdLn.ActivateInputField();
+    }
+
+    private IEnumerator Error()
+    {
+        invalid.SetActive(true);
+
+        AudioSource.PlayClipAtPoint(error, gm.transform.position, 200f);
+
+        yield return new WaitForSeconds(0.5f);
+
+        invalid.SetActive(false);
     }
 
     private void OpenParser(string fileName)
