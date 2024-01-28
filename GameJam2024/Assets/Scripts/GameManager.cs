@@ -40,8 +40,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Preshow());
 
         radioAnim = radioNeedle.GetComponent<Animator>();
-
-        Unstable?.Invoke();
     }
 
     IEnumerator Preshow()
