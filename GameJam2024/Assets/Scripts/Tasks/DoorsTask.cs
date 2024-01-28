@@ -19,7 +19,6 @@ public class DoorsTask : MonoBehaviour
     private void Start()
     {
         cCont = gameObject.GetComponent<CmdController>();
-        StartCodes();
     }
 
     private void Update()
