@@ -20,11 +20,13 @@ public class CmdController : MonoBehaviour
     [SerializeField] private GameObject txtView;
     [SerializeField] private GameObject init;
     [SerializeField] private GameObject reactor;
+    [SerializeField] private GameObject power;
+    [SerializeField] private GameObject doors;
 
     [SerializeField] private TextMeshProUGUI txt;
     [SerializeField] private TextMeshProUGUI[] treeFields;
 
-    private enum ActiveTask
+    public enum ActiveTask
     {
         none,
         reactor,
@@ -36,7 +38,7 @@ public class CmdController : MonoBehaviour
         monster
     }
 
-    private ActiveTask curTask = ActiveTask.none;
+    public ActiveTask curTask = ActiveTask.none;
 
     private void Awake()
     {
@@ -44,6 +46,12 @@ public class CmdController : MonoBehaviour
         commands.Add("home");
         commands.Add("back");
         commands.Add("killcode");
+    }
+
+    public void ResetCmdLn()
+    {
+        cmdLn.text = "";
+        cmdLn.ActivateInputField();
     }
 
     public void Command()
@@ -107,6 +115,20 @@ public class CmdController : MonoBehaviour
                 taskActive = true;
                 curTask = ActiveTask.reactor;
                 return;
+            case "powercontrol":
+                treeView.SetActive(false);
+                txtView.SetActive(false);
+                power.SetActive(true);
+                taskActive = true;
+                curTask = ActiveTask.power;
+                return;
+            case "securitydoors":
+                treeView.SetActive(false);
+                txtView.SetActive(false);
+                doors.SetActive(true);
+                taskActive = true;
+                curTask = ActiveTask.doors;
+                break;
         }
 
         string readData = FileReader.ReadFile(fileName);
@@ -159,10 +181,10 @@ public class CmdController : MonoBehaviour
                 gameObject.GetComponent<ReactorTask>().TaskCmd(command);
                 break;
             case ActiveTask.power:
-
+                gameObject.GetComponent<PowerTask>().RotateTile(command);
                 break;
             case ActiveTask.doors:
-
+                gameObject.GetComponent<DoorsTask>().TaskCmd(command);
                 break;
             case ActiveTask.security:
 

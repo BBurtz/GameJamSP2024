@@ -2,4 +2,6 @@ TREE;
 FLOPPYA;
 TestFileTreeParsing;
 TxtTest;
+R&D_Day1;
+eriksjournal;
 BACK NOPREVDIR

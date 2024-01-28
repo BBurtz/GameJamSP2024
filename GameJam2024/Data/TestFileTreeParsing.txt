@@ -1,7 +1,7 @@
 TREE;
 TestFileTreeParsing;
 001;
-002;
+PowerControl;
 003;
 004;
 005;
