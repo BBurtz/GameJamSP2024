@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Endings : MonoBehaviour
 {
@@ -91,7 +92,8 @@ public class Endings : MonoBehaviour
         foreach (AudioSource sound in ambiance)
         {
             sound.Stop();
-        }      
+        }
+        Invoke("ShutOff", 3);
     }
 
     /// <summary>
@@ -187,7 +189,12 @@ public class Endings : MonoBehaviour
         {
             Item.SetActive(false);
         }
-        loadingScreen.SetActive(true);
+        Invoke("startOver", 2);
+    }
+
+    void startOver()
+    {
+        SceneManager.LoadScene(0);
     }
 
     void Everythingoff()
@@ -203,6 +210,6 @@ public class Endings : MonoBehaviour
         {
             AudioManager.Instance.Play("Losing");
         }
-
+        Invoke("startOver", 10);
     }
 }
