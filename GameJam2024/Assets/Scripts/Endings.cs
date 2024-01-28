@@ -129,15 +129,13 @@ public class Endings : MonoBehaviour
 
     void Error()
     {
-        prompt.text = "";
-        prompt.gameObject.SetActive(false);
         ErrorText.SetActive(true);
         foreach (GameObject Item in OtherCanvasItems)
         {
             Item.SetActive(false);
         }
         Invoke("Everythingoff", 2);
-        Invoke("ReturnHome", 4);
+        Invoke("ReturnHome", 10);
     }
 
     void Ending()
