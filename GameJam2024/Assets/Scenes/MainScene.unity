@@ -3625,6 +3625,147 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561095354}
   m_CullTransparentMesh: 1
+--- !u!1 &587259545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 587259547}
+  - component: {fileID: 587259546}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &587259546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587259545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3028b8f6338a94f81348232fbfa2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BeepPA
+    clip: {fileID: 8300000, guid: f45e50aafd9604046a8292822bff078c, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: BiotechPA
+    clip: {fileID: 8300000, guid: b59defd388725dd439cc84cbf1052655, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: ClickTask
+    clip: {fileID: 8300000, guid: 19c21f89d7479084f855e3ebf5f2a5a4, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: CorrectTask
+    clip: {fileID: 8300000, guid: ddc9bcd7632595e428b2113b722bdca6, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: CurrentTask
+    clip: {fileID: 8300000, guid: 70fcfdc7ddd4bb149854fd891f717435, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: DoorMonster
+    clip: {fileID: 8300000, guid: 99a192ab144082f4a8f931835bc445c0, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: ErrorTask
+    clip: {fileID: 8300000, guid: 23da920d986b5fb4198edcad5533863f, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: FootstepsMonster
+    clip: {fileID: 8300000, guid: 23da920d986b5fb4198edcad5533863f, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: IAM
+    clip: {fileID: 8300000, guid: 0924da1aca4b18340b811047f0404e8f, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: KnockingMonster
+    clip: {fileID: 8300000, guid: 0de39d37f2199a54a9bdcf4e01b241f2, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Lockdown1PA
+    clip: {fileID: 8300000, guid: e8bcc711a80298b42b8b60080c703e18, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: Lockdown2PA
+    clip: {fileID: 8300000, guid: f5b94a71ba5d73d4b9104908507ffc29, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: PowerPA
+    clip: {fileID: 8300000, guid: 28c030358a898d64b9d447120a240aba, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: SolitareTask
+    clip: {fileID: 8300000, guid: a4a23f7e54f8e2846b8a5d03dc0848cc, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: StaticMonster
+    clip: {fileID: 8300000, guid: d827b35fb8dbf3a499af9fb4447797c7, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: WrongTask
+    clip: {fileID: 8300000, guid: e726d71820a64484a8ae80e3ae2972a2, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+--- !u!4 &587259547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587259545}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.4201417, y: -1.9350915, z: 5.0938034}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &660555071
 GameObject:
   m_ObjectHideFlags: 0
