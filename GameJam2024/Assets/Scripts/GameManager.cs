@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
     public static Action StartVIM, Yapster, Unstable, SpotIt;
     [SerializeField] private List<int> MalwareList = new List<int>();
 
+    public Sprite spr1;
+    public Sprite spr2;
+    public Sprite spr3;
+
 
     private void Start()
     {

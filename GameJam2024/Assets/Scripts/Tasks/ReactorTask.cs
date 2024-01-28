@@ -15,6 +15,7 @@ public class ReactorTask : MonoBehaviour
     [SerializeField] private GameObject treeView;
     [SerializeField] private GameObject reactor;
     [SerializeField] private GameObject adminCode;
+    [SerializeField] private GameObject treeBkgrnd;
 
     [SerializeField] private Sprite goodChamber;
     [SerializeField] private Sprite badChamber;
@@ -78,6 +79,7 @@ public class ReactorTask : MonoBehaviour
             {
                 gm.GetComponent<GameManager>().Task1 = true;
                 treeView.SetActive(true);
+                treeBkgrnd.SetActive(true);
                 adminCode.SetActive(false);
                 cCont.curTask = CmdController.ActiveTask.none;
                 cCont.taskActive = false;

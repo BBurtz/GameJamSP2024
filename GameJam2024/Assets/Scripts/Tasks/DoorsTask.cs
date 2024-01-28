@@ -19,6 +19,7 @@ public class DoorsTask : MonoBehaviour
     [SerializeField] private GameObject treeView;
     [SerializeField] private GameObject doors;
     private GameObject gm;
+    [SerializeField] private GameObject treeBkgrnd;
 
     private void Start()
     {
@@ -36,6 +37,7 @@ public class DoorsTask : MonoBehaviour
             gm.GetComponent<GameManager>().Task3 = true;
             StopDoorCodes();
             treeView.SetActive(true);
+            treeBkgrnd.SetActive(true);
             doors.SetActive(false);
         }
 
@@ -112,9 +114,10 @@ public class DoorsTask : MonoBehaviour
     private void ForceExit()
     {
         StopDoorCodes();
-        cmdLn.text = "open FLOPPYA";
+        cmdLn.text = "open start";
         cCont.Command();
         treeView.SetActive(true);
+        treeBkgrnd.SetActive(true);
         doors.SetActive(false);
     }
 

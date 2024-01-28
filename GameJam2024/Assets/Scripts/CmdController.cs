@@ -23,6 +23,10 @@ public class CmdController : MonoBehaviour
     [SerializeField] private GameObject power;
     [SerializeField] private GameObject doors;
     [SerializeField] private GameObject cameras;
+    [SerializeField] private GameObject treeBkgrnd;
+    [SerializeField] private GameObject pngTxt;
+    [SerializeField] private GameObject animation;
+    [SerializeField] private GameObject txtBkgrnd;
 
     [SerializeField] private TextMeshProUGUI txt;
     [SerializeField] private TextMeshProUGUI[] treeFields;
@@ -88,7 +92,8 @@ public class CmdController : MonoBehaviour
         else if(splitCmd[0].ToLower() == commands[1])
         {
             //Return to the home file.
-            OpenParser("FLOPPYA");
+            OpenParser("start");
+
         }
         else
         {
@@ -115,37 +120,46 @@ public class CmdController : MonoBehaviour
     {
         switch(fileName.ToLower())
         {
-            case "reactorcontrol":
+            case "reactor":
                 treeView.SetActive(false);
+                treeBkgrnd.SetActive(false);
                 txtView.SetActive(false);
+                txtBkgrnd.SetActive(false);
                 reactor.SetActive(true);
                 taskActive = true;
                 curTask = ActiveTask.reactor;
                 return;
-            case "powercontrol":
+            case "generator":
                 if(gm.GetComponent<GameManager>().Task1 == true)
                 {
                     treeView.SetActive(false);
+                    treeBkgrnd.SetActive(false);
                     txtView.SetActive(false);
+                    txtBkgrnd.SetActive(false);
                     power.SetActive(true);
                     taskActive = true;
                     curTask = ActiveTask.power;
                 }
                 return;
-            case "securitydoors":
+            case "lockdown":
                 if(gm.GetComponent<GameManager>().Task2 == true)
                 {
                     treeView.SetActive(false);
+                    treeBkgrnd.SetActive(false);
                     txtView.SetActive(false);
+                    txtBkgrnd.SetActive(false);
                     doors.SetActive(true);
                     taskActive = true;
                     curTask = ActiveTask.doors;
                     gameObject.GetComponent<DoorsTask>().StartCodes();
                 }
                 return;
-            case "containercamera":
+            case "connection":
+                if(gm.GetComponent<GameManager>().Task3 == true)
                 treeView.SetActive(false);
+                treeBkgrnd.SetActive(false);
                 txtView.SetActive(false);
+                txtBkgrnd.SetActive(false);
                 cameras.SetActive(true);
                 taskActive = true;
                 curTask = ActiveTask.connection;
@@ -181,14 +195,48 @@ public class CmdController : MonoBehaviour
 
             //Print out the tree.
             treeView.SetActive(true);
+            treeBkgrnd.SetActive(true);
             txtView.SetActive(false);
+            txtBkgrnd.SetActive(false);
+            pngTxt.SetActive(false);
+            animation.SetActive(false);
         }
         else if(splitData[0].StartsWith("TXT"))
         {
             txt.text = splitData[1];
 
+            prevDir = splitData[splitData.Length - 1].Split(" ")[1];
+
             txtView.SetActive(true);
+            txtBkgrnd.SetActive(true);
             treeView.SetActive(false);
+            treeBkgrnd.SetActive(false);
+        }
+        else if(splitData[0].StartsWith("PNGTXT"))
+        {
+            txt.text = splitData[1];
+            prevDir = splitData[splitData.Length - 1].Split(" ")[1];
+
+            txtView.SetActive(true);
+            txtBkgrnd.SetActive(true);
+            treeView.SetActive(false);
+            treeBkgrnd.SetActive(false);
+
+            switch(fileName.ToLower())
+            {
+                case "erik2":
+                    pngTxt.GetComponent<Image>().sprite = gm.GetComponent<GameManager>().spr1;
+                    pngTxt.SetActive(true);
+                    break;
+                case "newspaper":
+                    pngTxt.GetComponent<Image>().sprite = gm.GetComponent<GameManager>().spr2;
+                    pngTxt.SetActive(true);
+                    break;
+                case "r_d_day28":
+                    pngTxt.SetActive(false);
+                    animation.SetActive(true);
+                    break;
+            }
         }
     }
     

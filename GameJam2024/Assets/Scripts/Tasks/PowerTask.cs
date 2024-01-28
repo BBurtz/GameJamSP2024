@@ -19,6 +19,7 @@ public class PowerTask : MonoBehaviour
 
     [SerializeField] private GameObject treeView;
     [SerializeField] private GameObject powerControl;
+    [SerializeField] private GameObject treeBkgrnd;
 
     private CmdController cCont;
 
@@ -138,6 +139,7 @@ public class PowerTask : MonoBehaviour
         cCont.curTask = CmdController.ActiveTask.none;
         cCont.taskActive = false;
         treeView.SetActive(true);
+        treeBkgrnd.SetActive(true);
         powerControl.SetActive(false);
     }
 }
