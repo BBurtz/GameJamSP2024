@@ -58,7 +58,7 @@ public class ReactorTask : MonoBehaviour
                 img2.GetComponent<Image>().sprite = goodChamber;
                 break;
             case 3:
-                c1.text = correctCode;
+                c3.text = correctCode;
                 img3.GetComponent<Image>().sprite = goodChamber;
                 break;
         }
@@ -99,7 +99,20 @@ public class ReactorTask : MonoBehaviour
         }
         else
         {
-            //Do bad thing.
+            if(cmd.ToLower().StartsWith("home"))
+            {
+                cCont.curTask = CmdController.ActiveTask.none;
+                cCont.taskActive = false;
+                cCont.Command();
+                reactor.SetActive(false);
+            }
+            else if(cmd.ToLower().StartsWith("open"))
+            {
+                cCont.curTask = CmdController.ActiveTask.none;
+                cCont.taskActive = false;
+                cCont.Command();
+                reactor.SetActive(false);
+            }
         }
     }
 }

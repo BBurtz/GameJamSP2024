@@ -16,9 +16,14 @@ public class DoorsTask : MonoBehaviour
 
     private CmdController cCont;
 
+    [SerializeField] private GameObject treeView;
+    [SerializeField] private GameObject doors;
+    private GameObject gm;
+
     private void Start()
     {
         cCont = gameObject.GetComponent<CmdController>();
+        gm = GameObject.Find("GameManager");
     }
 
     private void Update()
@@ -26,13 +31,20 @@ public class DoorsTask : MonoBehaviour
         if(correctCodes == 10)
         {
             //Do task completion stuff.
+            cCont.curTask = CmdController.ActiveTask.none;
+            cCont.taskActive = false;
+            gm.GetComponent<GameManager>().Task3 = true;
+            StopDoorCodes();
+            treeView.SetActive(true);
+            doors.SetActive(false);
         }
 
         if(wrongCodes == 3)
         {
             //Force close task.
+            cCont.curTask = CmdController.ActiveTask.none;
+            cCont.taskActive = false;
             ForceExit();
-
         }
     }
 
@@ -50,7 +62,7 @@ public class DoorsTask : MonoBehaviour
     {
         for(; ; )
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
             //Start from beginning moving each code forward one slot.
             //If there is a code in the final slot when this happens, add one to wrongCodes.
@@ -101,6 +113,9 @@ public class DoorsTask : MonoBehaviour
     {
         StopDoorCodes();
         cmdLn.text = "open FLOPPYA";
+        cCont.Command();
+        treeView.SetActive(true);
+        doors.SetActive(false);
     }
 
     public void TaskCmd(string cmd)
@@ -127,6 +142,8 @@ public class DoorsTask : MonoBehaviour
                 {
                     codeSlots[index].text = "";
                     correctCodes++;
+                    StopCoroutine(doorCodes);
+                    StartCodes();
                 }
 
                 index++;

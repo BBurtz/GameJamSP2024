@@ -22,9 +22,14 @@ public class CmdController : MonoBehaviour
     [SerializeField] private GameObject reactor;
     [SerializeField] private GameObject power;
     [SerializeField] private GameObject doors;
+    [SerializeField] private GameObject cameras;
 
     [SerializeField] private TextMeshProUGUI txt;
     [SerializeField] private TextMeshProUGUI[] treeFields;
+
+    private GameObject gm;
+
+    public List<string> lockedFiles;
 
     public enum ActiveTask
     {
@@ -46,6 +51,8 @@ public class CmdController : MonoBehaviour
         commands.Add("home");
         commands.Add("back");
         commands.Add("killcode");
+
+        gm = GameObject.Find("GameManager");
     }
 
     public void ResetCmdLn()
@@ -116,19 +123,33 @@ public class CmdController : MonoBehaviour
                 curTask = ActiveTask.reactor;
                 return;
             case "powercontrol":
-                treeView.SetActive(false);
-                txtView.SetActive(false);
-                power.SetActive(true);
-                taskActive = true;
-                curTask = ActiveTask.power;
+                if(gm.GetComponent<GameManager>().Task1 == true)
+                {
+                    treeView.SetActive(false);
+                    txtView.SetActive(false);
+                    power.SetActive(true);
+                    taskActive = true;
+                    curTask = ActiveTask.power;
+                }
                 return;
             case "securitydoors":
+                if(gm.GetComponent<GameManager>().Task2 == true)
+                {
+                    treeView.SetActive(false);
+                    txtView.SetActive(false);
+                    doors.SetActive(true);
+                    taskActive = true;
+                    curTask = ActiveTask.doors;
+                    gameObject.GetComponent<DoorsTask>().StartCodes();
+                }
+                return;
+            case "containercamera":
                 treeView.SetActive(false);
                 txtView.SetActive(false);
-                doors.SetActive(true);
+                cameras.SetActive(true);
                 taskActive = true;
-                curTask = ActiveTask.doors;
-                break;
+                curTask = ActiveTask.connection;
+                return;
         }
 
         string readData = FileReader.ReadFile(fileName);
@@ -190,7 +211,7 @@ public class CmdController : MonoBehaviour
 
                 break;
             case ActiveTask.connection:
-
+                gameObject.GetComponent<CameraTask>().TaskCmd(command);
                 break;
             case ActiveTask.killcode:
 
