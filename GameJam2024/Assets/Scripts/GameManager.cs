@@ -29,20 +29,28 @@ public class GameManager : MonoBehaviour
     public Sprite spr2;
     public Sprite spr3;
 
-
+    [SerializeField] private GameObject radioNeedle;
+    private Animator radioAnim;
+    [SerializeField] private GameObject AlarmGo;
+    private bool alarmOn;
 
 
     private void Start()
     {
         StartCoroutine(Preshow());
+
+        radioAnim = radioNeedle.GetComponent<Animator>();
     }
 
     IEnumerator Preshow()
     {
         cb = cameraManager.GetComponent<CinemachineBehavior>();
         cb.ForceMoniter2();
-        //start talk show host
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(2);
+        AudioManager.Instance.Play("Podcast1");
+        yield return new WaitForSeconds(28);
+        StartCoroutine(FirstPodcast());
+        StartCoroutine(AlarmAnim());
         SetGameState();
     }
 
@@ -63,15 +71,17 @@ public class GameManager : MonoBehaviour
             case 4:
                 GamePhase = 2;
                 print("PHASE 2");
-                //jingle
+                StartCoroutine(PaLine());
                 break;
             case 4.5f:
                 SelectMalware(); //malware
+                StartCoroutine(SecondPodcast());
                 break;
             case 7.5f:
                 GamePhase = 3;
                 print("PHASE 3");
                 SelectMalware(); //malware
+                StartCoroutine(ThirdPodcast());
                 break;
             case 10:
                 //game ends
@@ -108,6 +118,61 @@ public class GameManager : MonoBehaviour
                 SpotIt?.Invoke();
                 MalwareList.Remove(2);
                 break;
+        }
+    }
+    IEnumerator FirstPodcast()
+    {
+        yield return new WaitForSeconds(12);
+        //radio on
+        radioAnim.SetBool("RadioMove", true);
+
+        yield return new WaitForSeconds(8);
+        //radio off
+        radioAnim.SetBool("RadioMove", false);
+    }
+    IEnumerator SecondPodcast()
+    {
+        AudioManager.Instance.Play("Podcast2");
+        yield return new WaitForSeconds(30);
+        //radio on
+        radioAnim.SetBool("RadioMove", true);
+
+        yield return new WaitForSeconds(10);
+        //radio off
+        radioAnim.SetBool("RadioMove", false);
+
+    }
+    IEnumerator ThirdPodcast()
+    {
+        yield return new WaitForSeconds(9);
+        AudioManager.Instance.Play("Podcast3");
+        yield return new WaitForSeconds(21);
+        //radio on
+        radioAnim.SetBool("RadioMove", true);
+
+        yield return new WaitForSeconds(14);
+        //radio off
+        radioAnim.SetBool("RadioMove", false);
+
+    }
+    IEnumerator PaLine()
+    {
+        AudioManager.Instance.Play("BeepPA");
+        yield return new WaitForSeconds(1);
+        AudioManager.Instance.Play("BiotechPA");
+        yield return new WaitForSeconds(17);
+        AudioManager.Instance.Play("NuMedJingle");
+    }
+
+    IEnumerator AlarmAnim()
+    {
+        alarmOn = true;
+        while (alarmOn)
+        {
+            AlarmGo.SetActive(true);
+            yield return new WaitForSeconds(1);
+            AlarmGo.SetActive(false);
+            yield return new WaitForSeconds(1);
         }
     }
 }
