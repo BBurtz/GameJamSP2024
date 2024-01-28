@@ -2588,6 +2588,7 @@ MonoBehaviour:
   - {fileID: 1003117896}
   prompt: {fileID: 171848839}
   loadingScreen: {fileID: 897596631}
+  computerScreen: []
 --- !u!1 &410630736
 GameObject:
   m_ObjectHideFlags: 0

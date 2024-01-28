@@ -39,6 +39,7 @@ public class DoorsTask : MonoBehaviour
             treeView.SetActive(true);
             treeBkgrnd.SetActive(true);
             doors.SetActive(false);
+            AudioManager.Instance.Play("CorrectTask");
         }
 
         if(wrongCodes == 3)
@@ -119,6 +120,7 @@ public class DoorsTask : MonoBehaviour
         treeView.SetActive(true);
         treeBkgrnd.SetActive(true);
         doors.SetActive(false);
+        AudioManager.Instance.Play("ErrorTask");
     }
 
     public void TaskCmd(string cmd)

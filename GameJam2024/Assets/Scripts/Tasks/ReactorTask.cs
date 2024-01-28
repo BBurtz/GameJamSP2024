@@ -72,6 +72,7 @@ public class ReactorTask : MonoBehaviour
             //Flip success in game controller.
             adminCode.SetActive(true);
             reactor.SetActive(false);
+            AudioManager.Instance.Play("CorrectTask");
         }
         else if(adminCode.activeInHierarchy == true)
         {
@@ -83,6 +84,7 @@ public class ReactorTask : MonoBehaviour
                 adminCode.SetActive(false);
                 cCont.curTask = CmdController.ActiveTask.none;
                 cCont.taskActive = false;
+                AudioManager.Instance.Play("CorrectTask");
             }
             else if(cmd.ToLower() == "home")
             {
@@ -130,6 +132,10 @@ public class ReactorTask : MonoBehaviour
                 cCont.prevDir = "power";
                 cCont.Command();
                 reactor.SetActive(false);
+            }
+            else
+            {
+                AudioManager.Instance.Play("WrongTask");
             }
         }
     }
