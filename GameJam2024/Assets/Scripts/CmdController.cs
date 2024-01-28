@@ -117,6 +117,7 @@ public class CmdController : MonoBehaviour
             if(gm.GetComponent<GameManager>().Task4 == true && splitCmd[1].ToLower() == "meaningless")
             {
                 //Put killcode ending here.
+                gm.GetComponent<Endings>().win();
             }
         }
         else
