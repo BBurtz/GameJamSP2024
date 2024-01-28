@@ -95,7 +95,7 @@ public class CmdController : MonoBehaviour
             OpenParser("start");
 
         }
-        else
+        else if(splitCmd[0].ToLower() == commands[2])
         {
             Debug.Log(prevDir);
 
@@ -107,6 +107,13 @@ public class CmdController : MonoBehaviour
             {
                 //Go back to the prior directory.
                 OpenParser(prevDir);
+            }
+        }
+        else
+        {
+            if(gm.GetComponent<GameManager>().Task4 == true && splitCmd[1].ToLower() == "meaningless")
+            {
+                //Put killcode ending here.
             }
         }
 
