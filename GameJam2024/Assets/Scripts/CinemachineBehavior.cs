@@ -13,10 +13,13 @@ public class CinemachineBehavior : MonoBehaviour
 
     [SerializeField] private GameObject canvas;
     private Coroutine canvasOn;
+    [SerializeField] private GameObject Monitor2;
+    private Monitor2Behavior m2b;
 
     private void Start()
     {
         action.performed += _ => SwitchCameraPriority();
+        m2b = Monitor2.GetComponent<Monitor2Behavior>();
     }
 
     private void SwitchCameraPriority()
@@ -61,7 +64,10 @@ public class CinemachineBehavior : MonoBehaviour
     private IEnumerator CanvasOn()
     {
         yield return new WaitForSeconds(1f);
-        canvas.SetActive(true);
+        if(!m2b.MalwareIsActive)
+        {
+            canvas.SetActive(true);
+        }
     }
 
     private void OnEnable()

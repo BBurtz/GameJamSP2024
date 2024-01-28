@@ -18,6 +18,7 @@ public class UnstableDownloadsBehavior : MonoBehaviour
         StartCoroutine(IncrementBar());
         StartCoroutine(PauseIncrement());
         errorMessage.SetActive(false);
+        AudioManager.Instance.Play("ClickTask");
     }
 
 
@@ -28,6 +29,7 @@ public class UnstableDownloadsBehavior : MonoBehaviour
         playButton.SetActive(true);
         increment = false;
         errorMessage.SetActive(true);
+        AudioManager.Instance.Play("ErrorTask");
     }
 
     //coroutine loops to add to progress while increment is true
@@ -40,6 +42,8 @@ public class UnstableDownloadsBehavior : MonoBehaviour
             if (progressBar.value == progressBar.maxValue)
             {
                 Destroy(gameObject);
+                AudioManager.Instance.Play("CorrectTask");
+                GameManager.MalwareDone?.Invoke();
             }
         }
     }

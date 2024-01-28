@@ -11,5 +11,6 @@ public class VIM_Behavior : MonoBehaviour
     public void CloseWindow()
     {
         Destroy(gameObject);
+        AudioManager.Instance.Play("VIMPopOff");
     }
 }

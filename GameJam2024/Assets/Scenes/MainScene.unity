@@ -3810,12 +3810,6 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - name: CorrectTask
-    clip: {fileID: 8300000, guid: ddc9bcd7632595e428b2113b722bdca6, type: 3}
-    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
   - name: CurrentTask
     clip: {fileID: 8300000, guid: 70fcfdc7ddd4bb149854fd891f717435, type: 3}
     mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
@@ -3824,12 +3818,6 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: DoorMonster
     clip: {fileID: 8300000, guid: 99a192ab144082f4a8f931835bc445c0, type: 3}
-    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: ErrorTask
-    clip: {fileID: 8300000, guid: 23da920d986b5fb4198edcad5533863f, type: 3}
     mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
     volume: 1
     pitch: 1
@@ -3882,12 +3870,6 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - name: WrongTask
-    clip: {fileID: 8300000, guid: e726d71820a64484a8ae80e3ae2972a2, type: 3}
-    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
   - name: Podcast1
     clip: {fileID: 8300000, guid: fa22d978a37808845876973d02219e1b, type: 3}
     mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
@@ -3910,6 +3892,42 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: fb7f7a6486c944f438e7c773202cbb97, type: 3}
     mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
     volume: 0.697
+    pitch: 1
+    source: {fileID: 0}
+  - name: MalwarePopUp
+    clip: {fileID: 8300000, guid: 02b137e8b91326b438b3eb43b0d520a1, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: VIMPopUp
+    clip: {fileID: 8300000, guid: 3960887c0cd669b43897c46de1d30ae4, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: VIMPopOff
+    clip: {fileID: 8300000, guid: 76d92b246a212b749a98fdfdc7ead7e1, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: CorrectTask
+    clip: {fileID: 8300000, guid: ddc9bcd7632595e428b2113b722bdca6, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: WrongTask
+    clip: {fileID: 8300000, guid: e726d71820a64484a8ae80e3ae2972a2, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ErrorTask
+    clip: {fileID: 8300000, guid: 23da920d986b5fb4198edcad5533863f, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
     pitch: 1
     source: {fileID: 0}
 --- !u!4 &587259547
@@ -4362,7 +4380,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 4f8146565d9802a41a99c2bed7b369f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6734,6 +6752,9 @@ MonoBehaviour:
   YapsterPrefab: {fileID: 8781764014330920247, guid: 694f482457dc9df4ca6d639521ec86bd, type: 3}
   UnstablePrefab: {fileID: 4388951895338400377, guid: 86ea9fc1b52b72644806cbc72f1e6161, type: 3}
   SpotItPrefab: {fileID: 5052893013129089194, guid: 469126b2c7bc057438d611686c7acedc, type: 3}
+  canvas: {fileID: 428400881}
+  staticAnim: {fileID: 683799427}
+  MalwareIsActive: 0
 --- !u!4 &1145334738
 Transform:
   m_ObjectHideFlags: 0
@@ -10544,6 +10565,7 @@ MonoBehaviour:
   leftCam: {fileID: 310584165}
   rightCam: {fileID: 410630737}
   canvas: {fileID: 428400881}
+  Monitor2: {fileID: 1145334736}
 --- !u!4 &1956105461
 Transform:
   m_ObjectHideFlags: 0
