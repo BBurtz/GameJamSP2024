@@ -18,7 +18,7 @@ public class CinemachineBehavior : MonoBehaviour
 
     private void SwitchCameraPriority()
     {
-        if(isFacingRight)
+        if(rightCam.Priority == 0)
         {
             rightCam.Priority = 1;
             leftCam.Priority = 0;
