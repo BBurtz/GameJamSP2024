@@ -22,6 +22,7 @@ public class CmdController : MonoBehaviour
     [SerializeField] private GameObject reactor;
     [SerializeField] private GameObject power;
     [SerializeField] private GameObject doors;
+    [SerializeField] private GameObject cameras;
 
     [SerializeField] private TextMeshProUGUI txt;
     [SerializeField] private TextMeshProUGUI[] treeFields;
@@ -203,7 +204,7 @@ public class CmdController : MonoBehaviour
 
                 break;
             case ActiveTask.connection:
-
+                gameObject.GetComponent<CameraTask>().TaskCmd(command);
                 break;
             case ActiveTask.killcode:
 
