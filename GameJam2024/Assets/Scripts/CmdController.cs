@@ -122,19 +122,25 @@ public class CmdController : MonoBehaviour
                 curTask = ActiveTask.reactor;
                 return;
             case "powercontrol":
-                treeView.SetActive(false);
-                txtView.SetActive(false);
-                power.SetActive(true);
-                taskActive = true;
-                curTask = ActiveTask.power;
+                if(gm.GetComponent<GameManager>().Task1 == true)
+                {
+                    treeView.SetActive(false);
+                    txtView.SetActive(false);
+                    power.SetActive(true);
+                    taskActive = true;
+                    curTask = ActiveTask.power;
+                }
                 return;
             case "securitydoors":
-                treeView.SetActive(false);
-                txtView.SetActive(false);
-                doors.SetActive(true);
-                taskActive = true;
-                curTask = ActiveTask.doors;
-                gameObject.GetComponent<DoorsTask>().StartCodes();
+                if(gm.GetComponent<GameManager>().Task2 == true)
+                {
+                    treeView.SetActive(false);
+                    txtView.SetActive(false);
+                    doors.SetActive(true);
+                    taskActive = true;
+                    curTask = ActiveTask.doors;
+                    gameObject.GetComponent<DoorsTask>().StartCodes();
+                }
                 return;
         }
 
