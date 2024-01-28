@@ -43,6 +43,14 @@ public class GameManager : MonoBehaviour
         radioAnim = radioNeedle.GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     IEnumerator Preshow()
     {
         yield return new WaitForSeconds(1);
