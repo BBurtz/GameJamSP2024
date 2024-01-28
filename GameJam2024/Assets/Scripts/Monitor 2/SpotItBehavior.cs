@@ -21,11 +21,13 @@ public class SpotItBehavior : MonoBehaviour
     public void Click()
     {
         click.SetActive(false);
+        AudioManager.Instance.Play("ClickTask");
     }
 
     public void Spotted()
     {
         itsSpotted++;
+        AudioManager.Instance.Play("ClickTask");
         ClearImage();
     }
 
@@ -47,6 +49,8 @@ public class SpotItBehavior : MonoBehaviour
                 break;
             case 5:
                 Destroy(gameObject);
+                AudioManager.Instance.Play("CorrectTask");
+                GameManager.MalwareDone?.Invoke();
                 break;
 
         }

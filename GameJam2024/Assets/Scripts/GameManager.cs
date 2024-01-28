@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject cameraManager;
     private CinemachineBehavior cb;     //to forve the camera movement type cb.ForceMoniter1 (or 2) to refrece function
 
-    public static Action StartVIM, Yapster, Unstable, SpotIt;
+    public static Action StartVIM, Yapster, Unstable, SpotIt, MalwareDone;
     [SerializeField] private List<int> MalwareList = new List<int>();
 
     public Sprite spr1;
@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Preshow()
     {
+        yield return new WaitForSeconds(1);
         cb = cameraManager.GetComponent<CinemachineBehavior>();
         cb.ForceMoniter2();
         yield return new WaitForSeconds(2);
@@ -167,6 +168,8 @@ public class GameManager : MonoBehaviour
     IEnumerator AlarmAnim()
     {
         alarmOn = true;
+        StartCoroutine(CheckFirstTask());
+
         while (alarmOn)
         {
             AlarmGo.SetActive(true);
@@ -174,5 +177,16 @@ public class GameManager : MonoBehaviour
             AlarmGo.SetActive(false);
             yield return new WaitForSeconds(1);
         }
+    }
+
+    IEnumerator CheckFirstTask()
+    {
+        while(Task1 == false)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1);
+        alarmOn = false;
     }
 }

@@ -15,6 +15,10 @@ public class Monitor2Behavior : MonoBehaviour
     [SerializeField] private GameObject UnstablePrefab;
     [SerializeField] private GameObject SpotItPrefab;
 
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject staticAnim;
+    public bool MalwareIsActive;
+
 
     private void OnEnable()
     {
@@ -22,6 +26,7 @@ public class Monitor2Behavior : MonoBehaviour
         GameManager.Yapster += SpawnYap;
         GameManager.Unstable += SpawnUnstable;
         GameManager.SpotIt += SpawnSpotIt;
+        GameManager.MalwareDone += MalwareInactive;
     }
     private void OnDisable()
     {
@@ -29,6 +34,7 @@ public class Monitor2Behavior : MonoBehaviour
         GameManager.Yapster -= SpawnYap;
         GameManager.Unstable -= SpawnUnstable;
         GameManager.SpotIt -= SpawnSpotIt;
+        GameManager.MalwareDone -= MalwareInactive;
     }
 
     //VIM
@@ -41,6 +47,7 @@ public class Monitor2Behavior : MonoBehaviour
         SelectVIMMessage();
         SelectVIMLocation();
         Instantiate(selectedVIM, VIMLocation, transform.rotation);
+        AudioManager.Instance.Play("VIMPopUp");
     }
     private void SelectVIMMessage()
     {
@@ -73,19 +80,40 @@ public class Monitor2Behavior : MonoBehaviour
     //Malware Spawns
     private void SpawnYap()
     {
+        AudioManager.Instance.Play("MalwarePopUp");
+        MalwareIsActive = true;
+        MalwareActive();
         Vector2 YapSpawnPt = new Vector2(Random.Range(-13.77f, -9.38f), Random.Range(-1.4f, 0f));
         Instantiate(YapsterPrefab, YapSpawnPt, transform.rotation);
     }
 
     private void SpawnUnstable()
     {
+        AudioManager.Instance.Play("MalwarePopUp");
+        MalwareIsActive = true;
+        MalwareActive();
         Vector2 UnstableSpawnPt = new Vector2(Random.Range(-12.38f, -10.56f), Random.Range(-2.14f, 1f));
         Instantiate(UnstablePrefab, UnstableSpawnPt, transform.rotation);
     }
 
     private void SpawnSpotIt()
     {
+        AudioManager.Instance.Play("MalwarePopUp");
+        MalwareIsActive = true;
+        MalwareActive();
         Vector2 UnstableSpawnPt = new Vector2(Random.Range(-12.46f, -10.48f), Random.Range(-1.34f, 0.19f));
         Instantiate(SpotItPrefab, UnstableSpawnPt, transform.rotation);
+    }
+
+
+    void MalwareActive()
+    {
+        staticAnim.SetActive(true);
+        canvas.SetActive(false);
+    }
+    void MalwareInactive()
+    {
+        MalwareIsActive = false;
+        staticAnim.SetActive(false);
     }
 }
