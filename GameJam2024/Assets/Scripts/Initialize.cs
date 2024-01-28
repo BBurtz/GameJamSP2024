@@ -9,7 +9,7 @@ public class Initialize : MonoBehaviour
 
     private void Awake()
     {
-        string readData = FileReader.ReadFile("FLOPPYA");
+        string readData = FileReader.ReadFile("start");
 
         string[] splitData = readData.Split(";");
 

@@ -20,6 +20,8 @@ public class CameraTask : MonoBehaviour
     [SerializeField] private GameObject Tree;
     [SerializeField] private GameObject Admin;
     [SerializeField] private GameObject CamTask;
+    [SerializeField] private GameObject treeBkgrnd;
+
     [SerializeField] private string correctCode = "1818";
 
     // Start is called before the first frame update
@@ -109,6 +111,7 @@ public class CameraTask : MonoBehaviour
         {
             GM.Task4 = true;
             Tree.SetActive(true);
+            treeBkgrnd.SetActive(true);
             Admin.SetActive(false);
         }
     }

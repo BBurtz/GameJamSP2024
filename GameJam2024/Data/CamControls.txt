@@ -1,0 +1,12 @@
+TXT;
+NuMed Technologies
+Research and Development Group
+------------------------------------------
+CAMERA COMMANDS
+
+- switch <camera #>
+	Switches to the camera number input
+
+- submit <container #>
+	Enables biometric neutralization system;
+BACK Cameras
