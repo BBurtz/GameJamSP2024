@@ -13,7 +13,6 @@ public class UpdateSprite : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
     void Start()
     {
         List<string> deck = Solitaire.GenerateDeck();
@@ -34,7 +33,6 @@ public class UpdateSprite : MonoBehaviour
         selectable = GetComponent<Selectable>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (selectable.faceUp == true)

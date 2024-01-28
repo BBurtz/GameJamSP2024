@@ -38,19 +38,17 @@ public class Solitaire : MonoBehaviour
     public bool solitaireW;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         bottoms = new List<string>[] { bottom0, bottom1, bottom2, bottom3, bottom4, bottom5, bottom6 };
         PlayCards();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("HK"))
+        if(GameObject.Find("HK") != null && GameObject.Find("HA"))
         {
-            if (GameObject.Find("HK").transform.position.y == topPos[1].transform.position.y)
+            if (GameObject.Find("HK").transform.position.y == GameObject.Find("HA").transform.position.y)
             {
                 cardsInTopRow = 0;
                 foreach (string card in freshDeck)
@@ -80,10 +78,8 @@ public class Solitaire : MonoBehaviour
         freshDeck = deck;
         Shuffle(deck);
 
-        //test the cards in the deck:
         foreach (string card in deck)
         {
-            //print(card);
         }
         SolitaireSort();
         StartCoroutine(SolitaireDeal());
@@ -138,7 +134,7 @@ public class Solitaire : MonoBehaviour
                 }
                 
 
-                yOffset = yOffset + 0.3f;
+                yOffset = yOffset + 0.2f;
                 zOffset = zOffset + 0.03f;
                 discardPile.Add(card);
             }
@@ -204,7 +200,6 @@ public class Solitaire : MonoBehaviour
 
     public void DealFromDeck()
     {
-        // add remaining cards to discard pile
 
         foreach (Transform child in deckButton.transform)
         {
@@ -219,15 +214,14 @@ public class Solitaire : MonoBehaviour
 
         if (deckLocation < trips)
         {
-            // draw 3 new cards
             tripsOnDisplay.Clear();
-            float xOffset = 2.5f;
+            float xOffset = 1f;
             float zOffset = -0.2f;
 
             foreach (string card in deckTrips[deckLocation])
             {
                 GameObject newTopCard = Instantiate(cardPrefab, new Vector3(deckButton.transform.position.x + xOffset, deckButton.transform.position.y, deckButton.transform.position.z + zOffset), Quaternion.identity, deckButton.transform);
-                xOffset = xOffset + 0.5f;
+                xOffset = xOffset + 0.25f;
                 zOffset = zOffset - 0.2f;
                 newTopCard.name = card;
                 tripsOnDisplay.Add(card);
@@ -238,8 +232,7 @@ public class Solitaire : MonoBehaviour
 
         }
         else
-        {
-            //Restack the top deck
+        {   
             RestackTopDeck();
         }
     }
