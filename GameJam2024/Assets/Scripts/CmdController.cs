@@ -26,6 +26,8 @@ public class CmdController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txt;
     [SerializeField] private TextMeshProUGUI[] treeFields;
 
+    public List<string> lockedFiles;
+
     public enum ActiveTask
     {
         none,
@@ -128,7 +130,8 @@ public class CmdController : MonoBehaviour
                 doors.SetActive(true);
                 taskActive = true;
                 curTask = ActiveTask.doors;
-                break;
+                gameObject.GetComponent<DoorsTask>().StartCodes();
+                return;
         }
 
         string readData = FileReader.ReadFile(fileName);
