@@ -48,23 +48,25 @@ public class Solitaire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("HK").transform.position.y == topPos[1].transform.position.y)
+        if(GameObject.Find("HK"))
         {
-            cardsInTopRow = 0;
-            foreach (string card in freshDeck)
+            if (GameObject.Find("HK").transform.position.y == topPos[1].transform.position.y)
             {
-                GameObject currentCard = GameObject.Find(card);
-                if (currentCard.transform.position.y == topPos[1].transform.position.y)
+                cardsInTopRow = 0;
+                foreach (string card in freshDeck)
                 {
-                    cardsInTopRow++;
+                    GameObject currentCard = GameObject.Find(card);
+                    if (currentCard.transform.position.y == topPos[1].transform.position.y)
+                    {
+                        cardsInTopRow++;
+                    }
+                }
+                if (cardsInTopRow == 52)
+                {
+                    solitaireW = true;
                 }
             }
-            if(cardsInTopRow == 52)
-            {
-                solitaireW = true;
-            }
         }
-
     }
 
     public void PlayCards()

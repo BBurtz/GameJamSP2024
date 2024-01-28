@@ -143,6 +143,13 @@ public class CmdController : MonoBehaviour
                     gameObject.GetComponent<DoorsTask>().StartCodes();
                 }
                 return;
+            case "containercamera":
+                treeView.SetActive(false);
+                txtView.SetActive(false);
+                cameras.SetActive(true);
+                taskActive = true;
+                curTask = ActiveTask.connection;
+                return;
         }
 
         string readData = FileReader.ReadFile(fileName);
