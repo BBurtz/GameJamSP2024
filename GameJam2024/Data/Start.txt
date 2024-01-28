@@ -1,6 +1,6 @@
 TREE;
 Start;
-Help;
+Help.txt;
 Power;
 Security;
 ;

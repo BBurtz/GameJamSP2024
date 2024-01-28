@@ -1,8 +1,8 @@
 TREE;
 Cameras;
-CamControls;
-R_D_Day15;
-Erik4;
+CamControls.txt;
+R_D_Day15.txt;
+Erik4.txt;
 ;
 ;
 ;

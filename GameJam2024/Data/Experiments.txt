@@ -2,7 +2,7 @@ TREE;
 Experiments;
 Connection;
 E-288;
-Newspaper;
+Newspaper.txt;
 ;
 ;
 ;

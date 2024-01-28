@@ -255,15 +255,15 @@ public class CmdController : MonoBehaviour
 
             switch(fileName.ToLower())
             {
-                case "erik2":
+                case "erik2.txt":
                     pngTxt.GetComponent<Image>().sprite = gm.GetComponent<GameManager>().spr1;
                     pngTxt.SetActive(true);
                     break;
-                case "newspaper":
+                case "newspaper.txt":
                     pngTxt.GetComponent<Image>().sprite = gm.GetComponent<GameManager>().spr2;
                     pngTxt.SetActive(true);
                     break;
-                case "r_d_day28":
+                case "r_d_day28.txt":
                     pngTxt.SetActive(false);
                     animation.SetActive(true);
                     break;
