@@ -24,6 +24,8 @@ public class Endings : MonoBehaviour
     [SerializeField] private TMP_InputField prompt;
     [SerializeField] private GameObject loadingScreen;
 
+    [SerializeField] private List<GameObject> computerScreen;
+
     bool loss = true;
 
     // Start is called before the first frame update
@@ -65,7 +67,7 @@ public class Endings : MonoBehaviour
 
     void Explode()
     {
-        AudioManager.Instance.Play(""); //monsters head explodes
+        AudioManager.Instance.Play("Explosion"); //monsters head explodes
         //back to normal lights
         BackGround.GetComponent<SpriteRenderer>().sprite = dBackground; //switch for lights off animation when done
     }
@@ -77,6 +79,11 @@ public class Endings : MonoBehaviour
     void WhoIsTheMonster()
     {
         WhoMonster.SetActive(true);
+
+        foreach(GameObject stuff in computerScreen)
+        {
+            stuff.SetActive(false);
+        }
 
         //Allows for user input when the prompt appears
         prompt.ActivateInputField();

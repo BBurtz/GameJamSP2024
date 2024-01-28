@@ -1786,6 +1786,24 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Alarm
+    clip: {fileID: 8300000, guid: dd190572a7cd8df429a78b7544d18ec5, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: bc88a87923e03ea479a5ef453b5b8992, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Losing
+    clip: {fileID: 8300000, guid: 5d900062efd31dc4f89a3a79bc1badb3, type: 3}
+    mixer: {fileID: 24300002, guid: bb92b8118ea9f3849bd1ab182b0e0b85, type: 2}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &1394108646
 Transform:
   m_ObjectHideFlags: 0
