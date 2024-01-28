@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class Monitor2Behavior : MonoBehaviour
@@ -18,6 +19,7 @@ public class Monitor2Behavior : MonoBehaviour
     [SerializeField] private GameObject canvas;
     [SerializeField] private GameObject staticAnim;
     public bool MalwareIsActive;
+    [SerializeField] private CinemachineVirtualCamera rightCam;
 
 
     private void OnEnable()
@@ -27,6 +29,8 @@ public class Monitor2Behavior : MonoBehaviour
         GameManager.Unstable += SpawnUnstable;
         GameManager.SpotIt += SpawnSpotIt;
         GameManager.MalwareDone += MalwareInactive;
+        MalwareIsActive = true;
+        StartCoroutine(CanvasInBeg());
     }
     private void OnDisable()
     {
@@ -115,5 +119,15 @@ public class Monitor2Behavior : MonoBehaviour
     {
         MalwareIsActive = false;
         staticAnim.SetActive(false);
+    }
+
+    IEnumerator CanvasInBeg()
+    {
+        yield return new WaitForSeconds(31);
+        MalwareIsActive = false;
+        if(rightCam.Priority == 0)
+        {
+            canvas.SetActive(true);
+        }
     }
 }
