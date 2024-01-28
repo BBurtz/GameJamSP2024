@@ -90,6 +90,8 @@ public class CmdController : MonoBehaviour
         if(splitCmd[0].ToLower() == commands[0])
         {
             //Run file opening function.
+            pngTxt.SetActive(false);
+            animation.SetActive(false);
             OpenParser(splitCmd[1]);
         }
         else if(splitCmd[0].ToLower() == commands[1])

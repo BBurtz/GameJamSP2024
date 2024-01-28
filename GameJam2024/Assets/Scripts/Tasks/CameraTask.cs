@@ -84,6 +84,8 @@ public class CameraTask : MonoBehaviour
         }
         else if (cmd.ToLower().StartsWith("switch"))
         {
+            AudioManager.Instance.Play("ClickTask");
+
             string[] temp = cmd.Split(" ");
             if (temp[1] == "1")
             {
@@ -113,6 +115,7 @@ public class CameraTask : MonoBehaviour
             {
                 CamTask.SetActive(false);
                 Admin.SetActive(true);
+                AudioManager.Instance.Play("CorrectTask");
 
             }
         }
@@ -124,6 +127,7 @@ public class CameraTask : MonoBehaviour
             Admin.SetActive(false);
             cCont.curTask = CmdController.ActiveTask.none;
             cCont.taskActive = false;
+            AudioManager.Instance.Play("CorrectTask");
         }
     }
 }
