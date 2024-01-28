@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject cameraManager;
     private CinemachineBehavior cb;     //to forve the camera movement type cb.ForceMoniter1 (or 2) to refrece function
 
-    public static Action StartVIM;
+    public static Action StartVIM, Yapster, Unstable, SpotIt;
 
 
     private void Start()
@@ -44,14 +44,19 @@ public class GameManager : MonoBehaviour
                 print("PHASE 1");
                 StartVIM?.Invoke();
                 break;
+            case 1.5f:
+                //malware
             case 4:
                 GamePhase = 2;
                 print("PHASE 2");
                 //jingle
                 break;
+            case 4.5f:
+                //malware
             case 7.5f:
                 GamePhase = 3;
                 print("PHASE 3");
+                //malware
                 break;
             case 10:
                 //game ends
