@@ -130,12 +130,27 @@ public class DoorsTask : MonoBehaviour
             cCont.curTask = CmdController.ActiveTask.none;
             cCont.taskActive = false;
             cCont.Command();
+            StopDoorCodes();
+            treeView.SetActive(true);
+            treeBkgrnd.SetActive(true);
+            doors.SetActive(false);
         }
         else if (cmd.ToLower().StartsWith("open"))
         {
             cCont.curTask = CmdController.ActiveTask.none;
             cCont.taskActive = false;
             cCont.Command();
+        }
+        else if(cmd.ToLower().StartsWith("back"))
+        {
+            cCont.curTask = CmdController.ActiveTask.none;
+            cCont.taskActive = false;
+            cCont.prevDir = "security";
+            cCont.Command();
+            StopDoorCodes();
+            treeView.SetActive(true);
+            treeBkgrnd.SetActive(true);
+            doors.SetActive(false);
         }
         else
         {

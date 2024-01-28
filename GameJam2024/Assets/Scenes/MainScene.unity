@@ -2739,6 +2739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540b638b9c98a454ea19d3edc3a50b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prevDir: 
   taskActive: 0
   cmdLn: {fileID: 171848839}
   treeView: {fileID: 1184389123}
@@ -2875,7 +2876,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8e6eb0f4aa2ff0a4e87637bd364bb315, type: 3}
   - {fileID: 21300000, guid: 6669a69aa95325647973942bc5230a2b, type: 3}
   - {fileID: 21300000, guid: 52498e872f62a6146a86fafcb4ef14f6, type: 3}
-  Codes: b8190000cc260000391b00001a070000
+  Codes: b8190000cc260000391b000027070000
   Camera: {fileID: 1352041274}
   CodeBox: {fileID: 560282359}
   Tree: {fileID: 1184389123}

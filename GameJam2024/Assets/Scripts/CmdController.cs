@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class CmdController : MonoBehaviour
 {
-    private string prevDir;
+    public string prevDir;
 
     public bool taskActive = false;
 
@@ -181,13 +181,15 @@ public class CmdController : MonoBehaviour
                 return;
             case "connection":
                 if(gm.GetComponent<GameManager>().Task3 == true)
-                treeView.SetActive(false);
-                treeBkgrnd.SetActive(false);
-                txtView.SetActive(false);
-                txtBkgrnd.SetActive(false);
-                cameras.SetActive(true);
-                taskActive = true;
-                curTask = ActiveTask.connection;
+                {
+                    treeView.SetActive(false);
+                    treeBkgrnd.SetActive(false);
+                    txtView.SetActive(false);
+                    txtBkgrnd.SetActive(false);
+                    cameras.SetActive(true);
+                    taskActive = true;
+                    curTask = ActiveTask.connection;
+                }
                 return;
         }
 

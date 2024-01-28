@@ -73,6 +73,15 @@ public class CameraTask : MonoBehaviour
             Admin.SetActive(false);
             cCont.Command();
         }
+        else if(cmd.ToLower().StartsWith("back"))
+        {
+            cCont.curTask = CmdController.ActiveTask.none;
+            cCont.taskActive = false;
+            cCont.prevDir = "experiments";
+            cCont.Command();
+            CamTask.SetActive(false);
+            Admin.SetActive(false);
+        }
         else if (cmd.ToLower().StartsWith("switch"))
         {
             string[] temp = cmd.Split(" ");
