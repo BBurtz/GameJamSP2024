@@ -34,16 +34,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(GameStart());
-
-        if(cameraManager != null)
-        {
-            cb = cameraManager.GetComponent<CinemachineBehavior>();
-        }
+        StartCoroutine(Preshow());
     }
 
-    IEnumerator GameStart()
+    IEnumerator Preshow()
     {
+        cb = cameraManager.GetComponent<CinemachineBehavior>();
         cb.ForceMoniter2();
         //start talk show host
         yield return new WaitForSeconds(30);
@@ -59,7 +55,7 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(GameTimer());
                 print("PHASE 1");
                 StartVIM?.Invoke();
-                //start first alarm
+                //turn off computer loading
                 break;
             case 1.5f:
                 SelectMalware(); //malware
