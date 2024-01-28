@@ -427,6 +427,7 @@ RectTransform:
   - {fileID: 1407406535}
   - {fileID: 1187055156}
   - {fileID: 1380964800}
+  - {fileID: 211700291}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -456,6 +457,11 @@ MonoBehaviour:
   power: {fileID: 1407406534}
   doors: {fileID: 1187055155}
   cameras: {fileID: 1380964799}
+  treeBkgrnd: {fileID: 0}
+  pngTxt: {fileID: 0}
+  animation: {fileID: 0}
+  txtBkgrnd: {fileID: 0}
+  invalid: {fileID: 211700290}
   txt: {fileID: 1261618373}
   treeFields:
   - {fileID: 492409224}
@@ -465,6 +471,7 @@ MonoBehaviour:
   - {fileID: 1817135091}
   - {fileID: 645474302}
   - {fileID: 1274589708}
+  error: {fileID: 8300000, guid: b21f08bf023e6b24cb0670e323fe1d19, type: 3}
   lockedFiles: []
   curTask: 0
 --- !u!114 &118871726
@@ -486,6 +493,7 @@ MonoBehaviour:
   treeView: {fileID: 29307448}
   reactor: {fileID: 958591652}
   adminCode: {fileID: 1514945457}
+  treeBkgrnd: {fileID: 0}
   goodChamber: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   badChamber: {fileID: 0}
   c1: {fileID: 391868439}
@@ -534,6 +542,7 @@ MonoBehaviour:
   c3: {fileID: 776342748}
   treeView: {fileID: 29307448}
   powerControl: {fileID: 1407406534}
+  treeBkgrnd: {fileID: 0}
 --- !u!114 &118871728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,6 +569,7 @@ MonoBehaviour:
   - {fileID: 1883746590}
   treeView: {fileID: 29307448}
   doors: {fileID: 1187055155}
+  treeBkgrnd: {fileID: 0}
 --- !u!114 &118871729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,6 +593,7 @@ MonoBehaviour:
   Tree: {fileID: 29307448}
   Admin: {fileID: 1514945457}
   CamTask: {fileID: 1380964799}
+  treeBkgrnd: {fileID: 0}
   correctCode: 1818
 --- !u!1 &144838966
 GameObject:
@@ -870,6 +881,141 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197078991}
+  m_CullTransparentMesh: 1
+--- !u!1 &211700290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211700291}
+  - component: {fileID: 211700293}
+  - component: {fileID: 211700292}
+  m_Layer: 5
+  m_Name: InvalidCommand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &211700291
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211700290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 118871724}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -98, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &211700292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211700290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: INVALID COMMAND
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 4f0b3c6fefbebba45940292011e90ca2, type: 2}
+  m_sharedMaterial: {fileID: 3770874298443355032, guid: 4f0b3c6fefbebba45940292011e90ca2, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190239
+  m_fontColor: {r: 0.6226415, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 100
+  m_fontSizeBase: 100
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &211700293
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211700290}
   m_CullTransparentMesh: 1
 --- !u!1 &274085112
 GameObject:
@@ -3598,6 +3744,10 @@ MonoBehaviour:
   Task6: 0
   gameTime: 0
   cameraManager: {fileID: 813630165}
+  MalwareList: 
+  spr1: {fileID: 0}
+  spr2: {fileID: 0}
+  spr3: {fileID: 0}
 --- !u!4 &1078694895
 Transform:
   m_ObjectHideFlags: 0
@@ -5289,7 +5439,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 1
   DopplerLevel: 1
   MinDistance: 32.578094
   MaxDistance: 500
@@ -5385,7 +5535,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 1
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5481,7 +5631,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 1
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5577,7 +5727,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 1
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
