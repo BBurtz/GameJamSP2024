@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class CmdController : MonoBehaviour
 {
-    private string prevDir;
+    public string prevDir;
 
     public bool taskActive = false;
 
@@ -117,6 +117,7 @@ public class CmdController : MonoBehaviour
             if(gm.GetComponent<GameManager>().Task4 == true && splitCmd[1].ToLower() == "meaningless")
             {
                 //Put killcode ending here.
+                gm.GetComponent<Endings>().win();
             }
         }
         else
@@ -146,16 +147,19 @@ public class CmdController : MonoBehaviour
         switch(fileName.ToLower())
         {
             case "reactor":
-                treeView.SetActive(false);
-                treeBkgrnd.SetActive(false);
-                txtView.SetActive(false);
-                txtBkgrnd.SetActive(false);
-                reactor.SetActive(true);
-                taskActive = true;
-                curTask = ActiveTask.reactor;
+                if(gm.GetComponent<GameManager>().Task1 != true)
+                {
+                    treeView.SetActive(false);
+                    treeBkgrnd.SetActive(false);
+                    txtView.SetActive(false);
+                    txtBkgrnd.SetActive(false);
+                    reactor.SetActive(true);
+                    taskActive = true;
+                    curTask = ActiveTask.reactor;
+                }
                 return;
             case "generator":
-                if(gm.GetComponent<GameManager>().Task1 == true)
+                if(gm.GetComponent<GameManager>().Task1 == true && gm.GetComponent<GameManager>().Task2 != true)
                 {
                     treeView.SetActive(false);
                     treeBkgrnd.SetActive(false);
@@ -167,7 +171,7 @@ public class CmdController : MonoBehaviour
                 }
                 return;
             case "lockdown":
-                if(gm.GetComponent<GameManager>().Task2 == true)
+                if(gm.GetComponent<GameManager>().Task2 == true && gm.GetComponent<GameManager>().Task3 != true)
                 {
                     treeView.SetActive(false);
                     treeBkgrnd.SetActive(false);
@@ -180,14 +184,16 @@ public class CmdController : MonoBehaviour
                 }
                 return;
             case "connection":
-                if(gm.GetComponent<GameManager>().Task3 == true)
-                treeView.SetActive(false);
-                treeBkgrnd.SetActive(false);
-                txtView.SetActive(false);
-                txtBkgrnd.SetActive(false);
-                cameras.SetActive(true);
-                taskActive = true;
-                curTask = ActiveTask.connection;
+                if(gm.GetComponent<GameManager>().Task3 == true && gm.GetComponent<GameManager>().Task4 != true)
+                {
+                    treeView.SetActive(false);
+                    treeBkgrnd.SetActive(false);
+                    txtView.SetActive(false);
+                    txtBkgrnd.SetActive(false);
+                    cameras.SetActive(true);
+                    taskActive = true;
+                    curTask = ActiveTask.connection;
+                }
                 return;
         }
 
@@ -249,15 +255,15 @@ public class CmdController : MonoBehaviour
 
             switch(fileName.ToLower())
             {
-                case "erik2":
+                case "erik2.txt":
                     pngTxt.GetComponent<Image>().sprite = gm.GetComponent<GameManager>().spr1;
                     pngTxt.SetActive(true);
                     break;
-                case "newspaper":
+                case "newspaper.txt":
                     pngTxt.GetComponent<Image>().sprite = gm.GetComponent<GameManager>().spr2;
                     pngTxt.SetActive(true);
                     break;
-                case "r_d_day28":
+                case "r_d_day28.txt":
                     pngTxt.SetActive(false);
                     animation.SetActive(true);
                     break;

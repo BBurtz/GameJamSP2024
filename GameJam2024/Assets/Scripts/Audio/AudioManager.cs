@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public float Volume;
     public Sound[] sounds;
 
     public static AudioManager Instance;

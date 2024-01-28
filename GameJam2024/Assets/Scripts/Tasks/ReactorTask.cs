@@ -98,6 +98,14 @@ public class ReactorTask : MonoBehaviour
                 cCont.Command();
                 adminCode.SetActive(false);
             }
+            else if (cmd.ToLower().StartsWith("back"))
+            {
+                cCont.curTask = CmdController.ActiveTask.none;
+                cCont.taskActive = false;
+                cCont.prevDir = "power";
+                cCont.Command();
+                adminCode.SetActive(false);
+            }
         }
         else
         {
@@ -112,6 +120,14 @@ public class ReactorTask : MonoBehaviour
             {
                 cCont.curTask = CmdController.ActiveTask.none;
                 cCont.taskActive = false;
+                cCont.Command();
+                reactor.SetActive(false);
+            }
+            else if(cmd.ToLower().StartsWith("back"))
+            {
+                cCont.curTask = CmdController.ActiveTask.none;
+                cCont.taskActive = false;
+                cCont.prevDir = "power";
                 cCont.Command();
                 reactor.SetActive(false);
             }
