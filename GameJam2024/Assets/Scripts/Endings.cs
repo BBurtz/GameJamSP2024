@@ -87,7 +87,7 @@ public class Endings : MonoBehaviour
         }
 
         //Allows for user input when the prompt appears
-        prompt.ActivateInputField();
+        //prompt.ActivateInputField();
 
         foreach (AudioSource sound in ambiance)
         {
