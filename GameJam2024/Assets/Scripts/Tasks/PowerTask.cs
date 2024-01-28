@@ -151,5 +151,6 @@ public class PowerTask : MonoBehaviour
         treeView.SetActive(true);
         treeBkgrnd.SetActive(true);
         powerControl.SetActive(false);
+        AudioManager.Instance.Play("CorrectTask");
     }
 }
