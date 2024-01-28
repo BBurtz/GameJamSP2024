@@ -28,6 +28,7 @@ public class NapsterBehavior : MonoBehaviour
     {
         sliderFill.SetActive(true);
         StartCoroutine(DownloadProgress());
+        AudioManager.Instance.Play("ClickTask");
     }
 
     IEnumerator DownloadProgress()
@@ -40,6 +41,7 @@ public class NapsterBehavior : MonoBehaviour
             if(progressBar.value == progressBar.maxValue)
             {
                 Destroy(gameObject);
+                AudioManager.Instance.Play("CorrectTask");
             }
         }
     }

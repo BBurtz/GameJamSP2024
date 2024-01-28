@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         cb = cameraManager.GetComponent<CinemachineBehavior>();
         cb.ForceMoniter2();
         yield return new WaitForSeconds(2);
-        AudioManager.Instance.Play("Podcast1");
+        //AudioManager.Instance.Play("Podcast1");
         yield return new WaitForSeconds(28);
         StartCoroutine(FirstPodcast());
         StartCoroutine(AlarmAnim());
