@@ -34,12 +34,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject AlarmGo;
     private bool alarmOn;
     [SerializeField] private GameObject loadingScreen;
+    private Endings end;
 
 
     private void Start()
     {
         StartCoroutine(Preshow());
-
+        end = gameObject.GetComponent<Endings>();
         radioAnim = radioNeedle.GetComponent<Animator>();
     }
 
@@ -94,7 +95,7 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(ThirdPodcast());
                 break;
             case 10:
-                //game ends
+                end.lost();
                 break;
         }
     }
