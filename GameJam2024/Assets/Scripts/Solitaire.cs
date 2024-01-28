@@ -83,7 +83,7 @@ public class Solitaire : MonoBehaviour
         //test the cards in the deck:
         foreach (string card in deck)
         {
-            print(card);
+            //print(card);
         }
         SolitaireSort();
         StartCoroutine(SolitaireDeal());

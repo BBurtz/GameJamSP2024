@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     private CinemachineBehavior cb;     //to forve the camera movement type cb.ForceMoniter1 (or 2) to refrece function
 
     public static Action StartVIM, Yapster, Unstable, SpotIt;
+    [SerializeField] private List<int> MalwareList = new List<int>();
 
 
     private void Start()
@@ -45,18 +46,20 @@ public class GameManager : MonoBehaviour
                 StartVIM?.Invoke();
                 break;
             case 1.5f:
-                //malware
+                SelectMalware(); //malware
+                break;
             case 4:
                 GamePhase = 2;
                 print("PHASE 2");
                 //jingle
                 break;
             case 4.5f:
-                //malware
+                SelectMalware(); //malware
+                break;
             case 7.5f:
                 GamePhase = 3;
                 print("PHASE 3");
-                //malware
+                SelectMalware(); //malware
                 break;
             case 10:
                 //game ends
@@ -75,4 +78,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void SelectMalware()
+    {
+        int index = UnityEngine.Random.Range(0, MalwareList.Count - 1);
+
+        switch(MalwareList[index])
+        {
+            case 0:
+                Unstable?.Invoke();
+                MalwareList.Remove(0);
+                break;
+            case 1:
+                Yapster?.Invoke();
+                MalwareList.Remove(1);
+                break;
+            case 2:
+                SpotIt?.Invoke();
+                MalwareList.Remove(2);
+                break;
+        }
+    }
 }
