@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     public static Action StartVIM, Yapster, Unstable, SpotIt;
     [SerializeField] private List<int> MalwareList = new List<int>();
+
+
 
 
     private void Start()
