@@ -26,6 +26,8 @@ public class CmdController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txt;
     [SerializeField] private TextMeshProUGUI[] treeFields;
 
+    private GameObject gm;
+
     public List<string> lockedFiles;
 
     public enum ActiveTask
@@ -48,6 +50,8 @@ public class CmdController : MonoBehaviour
         commands.Add("home");
         commands.Add("back");
         commands.Add("killcode");
+
+        gm = GameObject.Find("GameManager");
     }
 
     public void ResetCmdLn()
