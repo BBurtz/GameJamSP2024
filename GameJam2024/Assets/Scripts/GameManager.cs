@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     private Animator radioAnim;
     [SerializeField] private GameObject AlarmGo;
     private bool alarmOn;
+    [SerializeField] private GameObject loadingScreen;
 
 
     private void Start()
@@ -64,7 +65,7 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(GameTimer());
                 print("PHASE 1");
                 StartVIM?.Invoke();
-                //turn off computer loading
+                loadingScreen.SetActive(false);
                 break;
             case 1.5f:
                 SelectMalware(); //malware
