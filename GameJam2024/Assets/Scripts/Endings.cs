@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security;
 using UnityEngine;
+using TMPro;
 
 public class Endings : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class Endings : MonoBehaviour
 
     [SerializeField] private GameObject WhoMonster;
     [SerializeField] private List<AudioSource> ambiance;
+
+    [SerializeField] private TMP_InputField prompt;
+    [SerializeField] private GameObject question;  //Add this to the all items list for when it turns off
+    [SerializeField] private GameObject loadingScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -48,9 +53,12 @@ public class Endings : MonoBehaviour
         //just message
         //fade to black
 
+        Debug.Log("WIN");
+
         //Red alarm flashing animation
         AudioManager.Instance.Play("Alarm");
         Invoke("Explode", 3);
+        Invoke("WhoIsTheMonster", 4);
     }
 
     void Explode()
@@ -60,14 +68,46 @@ public class Endings : MonoBehaviour
         BackGround.GetComponent<SpriteRenderer>().sprite = dBackground; //switch for lights off animation when done
     }
 
+
+    /// <summary>
+    /// Enables the final question prompt
+    /// </summary>
     void WhoIsTheMonster()
     {
         WhoMonster.SetActive(true);
-        foreach(AudioSource sound in ambiance)
+
+        //Allows for user input when the prompt appears
+        prompt.ActivateInputField();
+
+        foreach (AudioSource sound in ambiance)
         {
             sound.Stop();
+        }      
+    }
+
+    /// <summary>
+    /// Checks what the player said
+    /// </summary>
+    public void Response()
+    {
+        question.SetActive(true);
+        string answer = prompt.text;
+        prompt.DeactivateInputField();
+
+        switch(answer.ToLower())
+        {
+            case "me":
+            case "myself":
+            case "i am":
+            case "schelley":
+            case "dr. schelley":
+            case "dr schelley":
+                Ending();
+                break;
+            default:
+                Error();
+                break;
         }
-        
     }
 
     public void lost()
@@ -78,12 +118,67 @@ public class Endings : MonoBehaviour
 
     void Error()
     {
+        prompt.text = "";
+        prompt.gameObject.SetActive(false);
         ErrorText.SetActive(true);
         foreach (GameObject Item in OtherCanvasItems)
         {
             Item.SetActive(false);
         }
         Invoke("Everythingoff", 2);
+        Invoke("ReturnHome", 4);
+    }
+
+    void Ending()
+    {
+        foreach (GameObject item in AllItems)
+        {
+            item.SetActive(false);
+        }
+
+        foreach (GameObject Item in OtherCanvasItems)
+        {
+            Item.SetActive(false);
+        }
+
+        //Disables the text
+        Invoke("DisableAnswer", 2);
+        //Goes to main menu
+        Invoke("ShutOff", 4);
+        Invoke("ReturnHome", 6);
+    }
+
+    /// <summary>
+    /// Disables what the player answered
+    /// </summary>
+    private void DisableAnswer()
+    {
+        prompt.text = "";
+        prompt.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Returns the player to the main menu
+    /// </summary>
+    private void ReturnHome()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    /// <summary>
+    /// Turns off everything and reenables the loading screen
+    /// </summary>
+    private void ShutOff()
+    {
+        foreach (GameObject item in AllItems)
+        {
+            item.SetActive(false);
+        }
+        foreach (GameObject Item in OtherCanvasItems)
+        {
+            Item.SetActive(false);
+        }
+        loadingScreen.SetActive(true);
     }
 
     void Everythingoff()

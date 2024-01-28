@@ -48,12 +48,22 @@ public class PowerTask : MonoBehaviour
             cCont.curTask = CmdController.ActiveTask.none;
             cCont.taskActive = false;
             cCont.Command();
+            powerControl.SetActive(false);
         }
         else if(id.ToLower().StartsWith("open"))
         {
             cCont.curTask = CmdController.ActiveTask.none;
             cCont.taskActive = false;
             cCont.Command();
+            powerControl.SetActive(false);
+        }
+        else if(id.ToLower().StartsWith("back"))
+        {
+            cCont.curTask = CmdController.ActiveTask.none;
+            cCont.taskActive = false;
+            cCont.prevDir = "power";
+            cCont.Command();
+            powerControl.SetActive(false);
         }
 
         if(id.Length > 2)
