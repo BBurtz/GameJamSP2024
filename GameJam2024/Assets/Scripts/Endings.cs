@@ -22,8 +22,9 @@ public class Endings : MonoBehaviour
     [SerializeField] private List<AudioSource> ambiance;
 
     [SerializeField] private TMP_InputField prompt;
-    [SerializeField] private GameObject question;  //Add this to the all items list for when it turns off
     [SerializeField] private GameObject loadingScreen;
+
+    bool loss = true;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +57,7 @@ public class Endings : MonoBehaviour
         Debug.Log("WIN");
 
         //Red alarm flashing animation
+        loss= false;
         AudioManager.Instance.Play("Alarm");
         Invoke("Explode", 3);
         Invoke("WhoIsTheMonster", 4);
@@ -90,7 +92,7 @@ public class Endings : MonoBehaviour
     /// </summary>
     public void Response()
     {
-        question.SetActive(true);
+        WhoMonster.SetActive(true);
         string answer = prompt.text;
         prompt.DeactivateInputField();
 
@@ -99,9 +101,9 @@ public class Endings : MonoBehaviour
             case "me":
             case "myself":
             case "i am":
-            case "schelley":
-            case "dr. schelley":
-            case "dr schelley":
+            case "shelley":
+            case "dr. shelley":
+            case "dr shelley":
                 Ending();
                 break;
             default:
@@ -190,6 +192,10 @@ public class Endings : MonoBehaviour
         }
         //screen goes off so no light is there to see anything
         //play knocking audio
-        AudioManager.Instance.Play("Losing");
+        if (loss)
+        {
+            AudioManager.Instance.Play("Losing");
+        }
+
     }
 }
