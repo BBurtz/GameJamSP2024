@@ -23,8 +23,15 @@ public class ReactorTask : MonoBehaviour
     [SerializeField] private TextMeshProUGUI c2;
     [SerializeField] private TextMeshProUGUI c3;
 
+    private CmdController cCont;
+
+    private GameObject gm;
+
     private void Start()
     {
+        cCont = gameObject.GetComponent<CmdController>();
+        gm = GameObject.Find("GameManager");
+
         for(int i = 4; i > 0; i--)
         {
             correctCode += Random.Range(0, 10).ToString();
@@ -51,7 +58,7 @@ public class ReactorTask : MonoBehaviour
                 img2.GetComponent<Image>().sprite = goodChamber;
                 break;
             case 3:
-                c1.text = correctCode;
+                c3.text = correctCode;
                 img3.GetComponent<Image>().sprite = goodChamber;
                 break;
         }
@@ -65,14 +72,47 @@ public class ReactorTask : MonoBehaviour
             adminCode.SetActive(true);
             reactor.SetActive(false);
         }
-        else if(cmd == correctAdminCode && adminCode.activeInHierarchy == true)
+        else if(adminCode.activeInHierarchy == true)
         {
-            treeView.SetActive(true);
-            adminCode.SetActive(false);
+            if(cmd == correctAdminCode)
+            {
+                gm.GetComponent<GameManager>().Task1 = true;
+                treeView.SetActive(true);
+                adminCode.SetActive(false);
+                cCont.curTask = CmdController.ActiveTask.none;
+                cCont.taskActive = false;
+            }
+            else if(cmd.ToLower() == "home")
+            {
+                cCont.curTask = CmdController.ActiveTask.none;
+                cCont.taskActive = false;
+                cCont.Command();
+                adminCode.SetActive(false);
+            }
+            else if(cmd.ToLower().StartsWith("open"))
+            {
+                cCont.curTask = CmdController.ActiveTask.none;
+                cCont.taskActive = false;
+                cCont.Command();
+                adminCode.SetActive(false);
+            }
         }
         else
         {
-            //Do bad thing.
+            if(cmd.ToLower().StartsWith("home"))
+            {
+                cCont.curTask = CmdController.ActiveTask.none;
+                cCont.taskActive = false;
+                cCont.Command();
+                reactor.SetActive(false);
+            }
+            else if(cmd.ToLower().StartsWith("open"))
+            {
+                cCont.curTask = CmdController.ActiveTask.none;
+                cCont.taskActive = false;
+                cCont.Command();
+                reactor.SetActive(false);
+            }
         }
     }
 }

@@ -1,8 +1,8 @@
 TREE;
 TestFileTreeParsing;
 001;
-002;
-003;
+PowerControl;
+SecurityDoors;
 004;
 005;
 BACK FLOPPYA
