@@ -13,7 +13,6 @@ public class Selectable : MonoBehaviour
 
     private string valueString;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (CompareTag("Card"))
@@ -82,7 +81,6 @@ public class Selectable : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         
