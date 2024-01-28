@@ -14,6 +14,7 @@ public class MainMenuCmdLn : MonoBehaviour
     [SerializeField] private GameObject invalid;
     [SerializeField] private GameObject credits;
     [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject setting;
 
     [SerializeField] private AudioClip error;
 
@@ -48,7 +49,7 @@ public class MainMenuCmdLn : MonoBehaviour
         else if (command.ToLower().StartsWith("setting"))
         {
             //Open settings
-            //setting.SetActive(true);
+            setting.SetActive(true);
             credits.SetActive(false);
             mainMenu.SetActive(false);
         }
@@ -57,7 +58,7 @@ public class MainMenuCmdLn : MonoBehaviour
             //Open credits.
             credits.SetActive(true);
             mainMenu.SetActive(false);
-            //settings.SetActive(false);
+            setting.SetActive(false);
         }
         else if(command.ToLower().StartsWith("quit"))
         {
@@ -67,7 +68,7 @@ public class MainMenuCmdLn : MonoBehaviour
         {
             mainMenu.SetActive(true);
             credits.SetActive(false);
-            //settings.SetActive(false);
+            setting.SetActive(false);
         }
         else
         {
