@@ -42,6 +42,7 @@ public class NapsterBehavior : MonoBehaviour
             {
                 Destroy(gameObject);
                 AudioManager.Instance.Play("CorrectTask");
+                GameManager.MalwareDone?.Invoke();
             }
         }
     }

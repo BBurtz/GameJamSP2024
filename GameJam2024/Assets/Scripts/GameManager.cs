@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject cameraManager;
     private CinemachineBehavior cb;     //to forve the camera movement type cb.ForceMoniter1 (or 2) to refrece function
 
-    public static Action StartVIM, Yapster, Unstable, SpotIt;
+    public static Action StartVIM, Yapster, Unstable, SpotIt, MalwareDone;
     [SerializeField] private List<int> MalwareList = new List<int>();
 
     public Sprite spr1;
@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Preshow());
 
         radioAnim = radioNeedle.GetComponent<Animator>();
+
+        Unstable?.Invoke();
     }
 
     IEnumerator Preshow()
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
         cb = cameraManager.GetComponent<CinemachineBehavior>();
         cb.ForceMoniter2();
         yield return new WaitForSeconds(2);
-        //AudioManager.Instance.Play("Podcast1");
+        AudioManager.Instance.Play("Podcast1");
         yield return new WaitForSeconds(28);
         StartCoroutine(FirstPodcast());
         StartCoroutine(AlarmAnim());
@@ -167,6 +169,8 @@ public class GameManager : MonoBehaviour
     IEnumerator AlarmAnim()
     {
         alarmOn = true;
+        StartCoroutine(CheckFirstTask());
+
         while (alarmOn)
         {
             AlarmGo.SetActive(true);
@@ -174,5 +178,16 @@ public class GameManager : MonoBehaviour
             AlarmGo.SetActive(false);
             yield return new WaitForSeconds(1);
         }
+    }
+
+    IEnumerator CheckFirstTask()
+    {
+        while(Task1 == false)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1);
+        alarmOn = false;
     }
 }

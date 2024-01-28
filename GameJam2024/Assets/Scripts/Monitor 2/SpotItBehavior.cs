@@ -50,6 +50,7 @@ public class SpotItBehavior : MonoBehaviour
             case 5:
                 Destroy(gameObject);
                 AudioManager.Instance.Play("CorrectTask");
+                GameManager.MalwareDone?.Invoke();
                 break;
 
         }

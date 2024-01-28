@@ -43,6 +43,7 @@ public class UnstableDownloadsBehavior : MonoBehaviour
             {
                 Destroy(gameObject);
                 AudioManager.Instance.Play("CorrectTask");
+                GameManager.MalwareDone?.Invoke();
             }
         }
     }
