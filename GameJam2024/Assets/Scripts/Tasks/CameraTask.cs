@@ -122,6 +122,8 @@ public class CameraTask : MonoBehaviour
             Tree.SetActive(true);
             treeBkgrnd.SetActive(true);
             Admin.SetActive(false);
+            cCont.curTask = CmdController.ActiveTask.none;
+            cCont.taskActive = false;
         }
     }
 }

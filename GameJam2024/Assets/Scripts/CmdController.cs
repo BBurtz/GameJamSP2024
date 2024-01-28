@@ -147,16 +147,19 @@ public class CmdController : MonoBehaviour
         switch(fileName.ToLower())
         {
             case "reactor":
-                treeView.SetActive(false);
-                treeBkgrnd.SetActive(false);
-                txtView.SetActive(false);
-                txtBkgrnd.SetActive(false);
-                reactor.SetActive(true);
-                taskActive = true;
-                curTask = ActiveTask.reactor;
+                if(gm.GetComponent<GameManager>().Task1 != true)
+                {
+                    treeView.SetActive(false);
+                    treeBkgrnd.SetActive(false);
+                    txtView.SetActive(false);
+                    txtBkgrnd.SetActive(false);
+                    reactor.SetActive(true);
+                    taskActive = true;
+                    curTask = ActiveTask.reactor;
+                }
                 return;
             case "generator":
-                if(gm.GetComponent<GameManager>().Task1 == true)
+                if(gm.GetComponent<GameManager>().Task1 == true && gm.GetComponent<GameManager>().Task2 != true)
                 {
                     treeView.SetActive(false);
                     treeBkgrnd.SetActive(false);
@@ -168,7 +171,7 @@ public class CmdController : MonoBehaviour
                 }
                 return;
             case "lockdown":
-                if(gm.GetComponent<GameManager>().Task2 == true)
+                if(gm.GetComponent<GameManager>().Task2 == true && gm.GetComponent<GameManager>().Task3 != true)
                 {
                     treeView.SetActive(false);
                     treeBkgrnd.SetActive(false);
@@ -181,7 +184,7 @@ public class CmdController : MonoBehaviour
                 }
                 return;
             case "connection":
-                if(gm.GetComponent<GameManager>().Task3 == true)
+                if(gm.GetComponent<GameManager>().Task3 == true && gm.GetComponent<GameManager>().Task4 != true)
                 {
                     treeView.SetActive(false);
                     treeBkgrnd.SetActive(false);

@@ -2489,6 +2489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 376011577}
   - component: {fileID: 376011576}
+  - component: {fileID: 376011578}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2535,6 +2536,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &376011578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376011575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a1d070999d1404abc435c01e28ccf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightsOffTime: 0
+  BackGround: {fileID: 0}
+  nBackground: {fileID: 0}
+  rBackground: {fileID: 0}
+  dBackground: {fileID: 0}
+  ErrorText: {fileID: 0}
+  OtherCanvasItems: []
+  AllItems: []
+  WhoMonster: {fileID: 0}
+  ambiance: []
+  prompt: {fileID: 0}
+  question: {fileID: 0}
+  loadingScreen: {fileID: 0}
 --- !u!1 &410630736
 GameObject:
   m_ObjectHideFlags: 0
@@ -7886,6 +7912,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ad9f23cdae9194bba74b0ab8565af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topStacks: []
+  highScorePanel: {fileID: 0}
 --- !u!114 &1502583349
 MonoBehaviour:
   m_ObjectHideFlags: 0
